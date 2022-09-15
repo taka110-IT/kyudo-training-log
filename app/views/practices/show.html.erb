@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @practice %>
+
+<div>
+  <%= link_to "編集", edit_practice_path(@practice) %> |
+  <%= link_to "一覧に戻る", practices_path %>
+
+  <%= button_to "記録を削除する", @practice, method: :delete %>
+</div>
