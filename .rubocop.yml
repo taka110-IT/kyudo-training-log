@@ -1,0 +1,10 @@
+Style/AsciiComments:
+  Enabled: false
+
+AllCops:
+  TargetRubyVersion: 3.1
+  NewCops: enable
+
+require:
+  - rubocop-rails
+  - rubocop-performance
