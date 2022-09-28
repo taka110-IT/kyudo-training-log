@@ -8,8 +8,14 @@
 
 <hr>
 
-<%= month_calendar do |date| %>
+<%= month_calendar(attribute: :date, events: @practices) do |date, practices| %>
   <%= date.day %>
+
+  <% practices.each do |practice| %>
+    <div>
+      <%= practice.shooting_count %>射
+    </div>
+  <% end %>
 <% end %>
 
 <hr>
