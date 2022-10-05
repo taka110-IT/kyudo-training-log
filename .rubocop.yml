@@ -8,3 +8,4 @@ AllCops:
 require:
   - rubocop-rails
   - rubocop-performance
+  - rubocop-rspec
