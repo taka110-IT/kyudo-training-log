@@ -1,4 +1,5 @@
 class PracticesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_practice, only: %i[ show edit update destroy ]
 
   # GET /practices or /practices.json
@@ -58,13 +59,14 @@ class PracticesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_practice
-      @practice = Practice.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def practice_params
-      params.require(:practice).permit(:date, :shooting_count, :memo, :fixed, :important)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_practice
+    @practice = Practice.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def practice_params
+    params.require(:practice).permit(:date, :shooting_count, :memo, :fixed, :important, :user_id)
+  end
 end
