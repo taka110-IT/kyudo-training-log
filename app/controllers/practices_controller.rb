@@ -5,6 +5,8 @@ class PracticesController < ApplicationController
   # GET /practices or /practices.json
   def index
     @practices = Practice.all
+    @prospects = Prospect.all
+    @results = Practice.sum(:shooting_count)
   end
 
   # GET /practices/1 or /practices/1.json
