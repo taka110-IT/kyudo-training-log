@@ -4,23 +4,19 @@
 
 <hr>
 
-<%= @prospects[0]['year'] %>.<%= @prospects[0]['month'] %>
-<br>
-計：<%= @results %>射／予測：<%= @prospects[0]['total'] %>射
-
-<hr>
-
 <%= link_to "今日の練習を記録する", new_practice_path %>
 
 <hr>
 
-<%= month_calendar(attribute: :date, events: @practices) do |date, practices| %>
-  <%= date.day %>
+<%= turbo_frame_tag 'calendar' do %>
+  <%= month_calendar(attribute: :date, events: @practices) do |date, practices| %>
+    <%= date.day %>
 
-  <% practices.each do |practice| %>
-    <div>
-      <%= practice.shooting_count %>射
-    </div>
+    <% practices.each do |practice| %>
+      <div>
+        <%= practice.shooting_count %>射
+      </div>
+    <% end %>
   <% end %>
 <% end %>
 
