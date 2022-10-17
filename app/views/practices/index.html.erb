@@ -9,8 +9,8 @@
 <hr>
 
 <%= turbo_frame_tag 'calendar' do %>
-  <%= month_calendar(attribute: :date, events: @practices) do |date, practices| %>
-    <%= date.day %>
+  <%= month_calendar(events: @practices) do |date, practices| %>
+    <%= date.month %>/<%= date.day %>
 
     <% practices.each do |practice| %>
       <div>
