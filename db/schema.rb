@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_05_064902) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_11_091921) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,6 +25,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_064902) do
     t.bigint "user_id"
     t.index ["date"], name: "index_practices_on_date", unique: true
     t.index ["user_id"], name: "index_practices_on_user_id"
+  end
+
+  create_table "prospects", force: :cascade do |t|
+    t.integer "total"
+    t.integer "year", null: false
+    t.integer "month", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_prospects_on_user_id"
+    t.index ["year", "month"], name: "index_prospects_on_year_and_month", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,4 +65,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_064902) do
   end
 
   add_foreign_key "practices", "users"
+  add_foreign_key "prospects", "users"
 end
