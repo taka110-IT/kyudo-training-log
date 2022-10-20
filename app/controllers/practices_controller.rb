@@ -6,7 +6,7 @@ class PracticesController < ApplicationController
   def index
     @practices = Practice.all
     start_date = params.fetch(:start_date, Date.today).to_date
-    @prospects = Prospect.where(year: start_date.year, month: start_date.month).sum(:total)
+    @targets = Target.where(year: start_date.year, month: start_date.month).sum(:total)
     @results = Practice.where(date: start_date.in_time_zone.all_month).sum(:shooting_count)
   end
 
