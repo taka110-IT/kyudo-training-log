@@ -347,7 +347,7 @@ Practice.create!(
   ]
 )
 
-Prospect.create!(
+Target.create!(
   [
     {
       total: 200,
