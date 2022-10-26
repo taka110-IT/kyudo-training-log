@@ -22,6 +22,7 @@
 <% end %>
 
 <hr>
+<%= paginate @practices %>
 
 <div id="practices">
   <% @practices.each do |practice| %>
@@ -33,3 +34,5 @@
     <hr>
   <% end %>
 </div>
+
+<%= paginate @practices %>

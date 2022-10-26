@@ -4,7 +4,7 @@ class PracticesController < ApplicationController
 
   # GET /practices or /practices.json
   def index
-    @practices = Practice.all
+    @practices = Practice.page(params[:page]).per(10)
     start_date = params.fetch(:start_date, Date.today).to_date
     @targets = Target.where(year: start_date.year, month: start_date.month).sum(:total)
     @results = Practice.where(date: start_date.in_time_zone.all_month).sum(:shooting_count)
