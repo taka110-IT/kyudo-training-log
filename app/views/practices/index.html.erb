@@ -23,13 +23,19 @@
 
 <hr>
 
-<div id="practices">
-  <% @practices.each do |practice| %>
-    <%= render practice %>
-    <p>
-      <%= link_to "詳細", practice %> |
-      <%= link_to "編集", edit_practice_path(practice) %>
-    </p>
-    <hr>
-  <% end %>
-</div>
+<%= turbo_frame_tag 'practices-list' do %>
+  <%= paginate @practices %>
+
+  <div id="practices">
+    <% @practices.each do |practice| %>
+      <%= render practice %>
+      <p>
+        <%= link_to "詳細", practice %> |
+        <%= link_to "編集", edit_practice_path(practice) %>
+      </p>
+      <hr>
+    <% end %>
+  </div>
+
+  <%= paginate @practices %>
+<% end %>
