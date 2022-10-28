@@ -24,6 +24,8 @@
 <hr>
 
 <%= turbo_frame_tag 'practices-list' do %>
+  <%= render 'tabs' %>
+
   <%= paginate @practices %>
 
   <div id="practices">
