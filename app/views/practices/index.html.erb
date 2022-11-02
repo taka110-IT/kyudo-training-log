@@ -32,8 +32,8 @@
     <% @practices.each do |practice| %>
       <%= render practice %>
       <p>
-        <%= link_to "詳細", practice %> |
-        <%= link_to "編集", edit_practice_path(practice) %>
+        <%= link_to "詳細", practice, data: { turbo: false} %> |
+        <%= link_to "編集", edit_practice_path(practice), data: { turbo: false} %>
       </p>
       <hr>
     <% end %>
