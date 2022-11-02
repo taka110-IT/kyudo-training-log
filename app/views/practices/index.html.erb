@@ -10,12 +10,12 @@
 <hr>
 
 <%= turbo_frame_tag 'calendar' do %>
-  <%= month_calendar(events: @practices) do |date, practices| %>
+  <%= month_calendar(events: @calendar_displayed_practices) do |date, calendar_displayed_practices| %>
     <%= date.month %>/<%= date.day %>
 
-    <% practices.each do |practice| %>
+    <% calendar_displayed_practices.each do |calendar_displayed_practice| %>
       <div>
-        <%= practice.shooting_count %>射
+        <%= calendar_displayed_practice.shooting_count %>射
       </div>
     <% end %>
   <% end %>
