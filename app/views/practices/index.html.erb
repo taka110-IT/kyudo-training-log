@@ -1,5 +1,3 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>弓道練習記録帳</h1>
 
 <hr>
@@ -34,7 +32,6 @@
     <% @practices.each do |practice| %>
       <%= render practice %>
       <p>
-        <%= link_to "詳細", practice, data: { turbo_frame: "_top" } %> |
         <%= link_to "編集", edit_practice_path(practice), data: { turbo_frame: "_top" } %>
       </p>
       <hr>
