@@ -4,8 +4,7 @@
     <%= render @practice %>
 
     <div>
-      <%= link_to "編集", edit_practice_path(@practice), data: { turbo_frame: "_top" } %> |
-      <%= link_to "一覧に戻る", practices_path, data: { turbo_frame: "_top" } %>
+      <%= link_to "編集", edit_practice_path(@practice), data: { turbo_frame: "_top" } %>
 
       <%= button_to "記録を削除する", @practice, method: :delete %>
     </div>

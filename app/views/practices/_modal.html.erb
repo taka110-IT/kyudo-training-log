@@ -3,8 +3,8 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">モーダル</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title"><%= @practice.date %>の記録</h5>
+          <%= button_to '閉じる', practices_path, method: :get, data: { turbo_frame: "_top" } %>
         </div>
         <div class="modal-body">
           <%= yield %>
