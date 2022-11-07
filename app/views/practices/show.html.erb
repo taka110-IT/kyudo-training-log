@@ -1,10 +1,12 @@
-<p style="color: green"><%= notice %></p>
+<%= turbo_frame_tag @practice do %>
+  <%= render "modal", title: "詳細" do %>
 
-<%= render @practice %>
+    <%= render @practice %>
 
-<div>
-  <%= link_to "編集", edit_practice_path(@practice) %> |
-  <%= link_to "一覧に戻る", practices_path %>
+    <div>
+      <%= link_to "編集", edit_practice_path(@practice), data: { turbo_frame: "_top" } %> |
 
-  <%= button_to "記録を削除する", @practice, method: :delete %>
-</div>
+      <%= link_to "記録を削除する", @practice, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？", turbo_frame: "_top" } %>
+    </div>
+  <% end %>
+<% end %>

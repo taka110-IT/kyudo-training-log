@@ -3,6 +3,7 @@
   <head>
     <title>KyudoTrainingLog</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-cache-control" content="no-cache">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -28,5 +29,6 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+    <%= turbo_frame_tag "modal" %>
   </body>
 </html>

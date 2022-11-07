@@ -1,5 +1,3 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>弓道練習記録帳</h1>
 
 <hr>
@@ -10,12 +8,14 @@
 <hr>
 
 <%= turbo_frame_tag 'calendar' do %>
-  <%= month_calendar(events: @practices) do |date, practices| %>
+  <%= month_calendar(events: @calendar_displayed_practices) do |date, calendar_displayed_practices| %>
     <%= date.month %>/<%= date.day %>
 
-    <% practices.each do |practice| %>
+    <% calendar_displayed_practices.each do |calendar_displayed_practice| %>
       <div>
-        <%= practice.shooting_count %>射
+        <%= link_to "#{calendar_displayed_practice.shooting_count}射",
+                    practice_path(calendar_displayed_practice),
+                    data: { turbo_frame: "modal" } %>
       </div>
     <% end %>
   <% end %>
@@ -32,8 +32,8 @@
     <% @practices.each do |practice| %>
       <%= render practice %>
       <p>
-        <%= link_to "詳細", practice, data: { turbo: false} %> |
-        <%= link_to "編集", edit_practice_path(practice), data: { turbo: false} %>
+        <%= link_to "編集", edit_practice_path(practice), data: { turbo_frame: "_top" } %> |
+        <%= link_to "記録を削除する", practice, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？", turbo_frame: "_top" } %>
       </p>
       <hr>
     <% end %>

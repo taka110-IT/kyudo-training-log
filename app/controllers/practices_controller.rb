@@ -6,6 +6,7 @@ class PracticesController < ApplicationController
   def index
     practices = params[:memos] == 'important' ? Practice.where(important: true) : Practice.all
     @practices = practices.order(fixed: :desc, date: :desc).page(params[:page]).per(10)
+    @calendar_displayed_practices = Practice.all
     start_date = params.fetch(:start_date, Date.today).to_date
     @targets = Target.where(year: start_date.year, month: start_date.month).sum(:total)
     @results = Practice.where(date: start_date.in_time_zone.all_month).sum(:shooting_count)
@@ -30,7 +31,7 @@ class PracticesController < ApplicationController
 
     respond_to do |format|
       if @practice.save
-        format.html { redirect_to practice_url(@practice), notice: "Practice was successfully created." }
+        format.html { redirect_to practices_path, notice: "Practice was successfully created." }
         format.json { render :show, status: :created, location: @practice }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,7 +44,7 @@ class PracticesController < ApplicationController
   def update
     respond_to do |format|
       if @practice.update(practice_params)
-        format.html { redirect_to practice_url(@practice), notice: "Practice was successfully updated." }
+        format.html { redirect_to practices_path, notice: "Practice was successfully updated." }
         format.json { render :show, status: :ok, location: @practice }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,7 +58,7 @@ class PracticesController < ApplicationController
     @practice.destroy
 
     respond_to do |format|
-      format.html { redirect_to practices_url, notice: "Practice was successfully destroyed." }
+      format.html { redirect_to practices_url, notice: "Practice was successfully destroyed.", status: :see_other }
       format.json { head :no_content }
     end
   end

@@ -1,7 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
 
+import { Modal } from "bootstrap"
+
 export default class extends Controller {
   connect() {
-    this.element.textContent = "Hello World!"
+    this.modal = new Modal(this.element)
+    this.modal.show()
   }
 }
