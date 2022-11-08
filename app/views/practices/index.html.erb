@@ -39,8 +39,7 @@
     <% @practices.each do |practice| %>
       <%= render practice %>
       <p>
-        <%= link_to "編集", edit_practice_path(practice), data: { turbo_frame: "_top" } %> |
-        <%= link_to "記録を削除する", practice, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？", turbo_frame: "_top" } %>
+        <%= link_to "編集", edit_practice_path(practice), data: { turbo_frame: "_top" } %>
       </p>
       <hr>
     <% end %>
