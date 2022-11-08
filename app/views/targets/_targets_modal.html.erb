@@ -1,9 +1,9 @@
-<%= turbo_frame_tag "modal" do %>
-  <div class="modal fade" data-controller="modal">
+<%= turbo_frame_tag "targets_modal" do %>
+  <div class="modal fade" data-controller="targets-modal">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><%= @practice.date %>の記録</h5>
+          <h5 class="modal-title">目標射数を入力</h5>
           <%= button_to '閉じる', practices_path, method: :get, data: { turbo_frame: "_top" } %>
         </div>
         <div class="modal-body">
