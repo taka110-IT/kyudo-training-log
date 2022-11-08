@@ -1,27 +1,15 @@
 <div id="<%= dom_id practice %>">
   <p>
-    <strong>Date:</strong>
-    <%= practice.date %>
+    <%= practice.important == true ? '⭐️' : '' %>
+    <%= practice.fixed == true ? '📌固定されたメモ' : '' %>
   </p>
 
   <p>
-    <strong>Shooting count:</strong>
-    <%= practice.shooting_count %>
+    <%= practice.date %> | <%= practice.shooting_count %>射
   </p>
 
   <p>
-    <strong>Memo:</strong>
-    <%= practice.memo %>
-  </p>
-
-  <p>
-    <strong>Fixed:</strong>
-    <%= practice.fixed %>
-  </p>
-
-  <p>
-    <strong>Important:</strong>
-    <%= practice.important %>
+    <%= practice.memo.blank? ? 'メモはありません。' : practice.memo %>
   </p>
 
 </div>
