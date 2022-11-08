@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
+
+import TargetsModalController from "./targets_modal_controller"
+application.register("targets-modal", TargetsModalController)
