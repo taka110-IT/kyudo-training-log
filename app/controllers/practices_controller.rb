@@ -10,6 +10,7 @@ class PracticesController < ApplicationController
     start_date = params.fetch(:start_date, Date.today).to_date
     @targets = Target.where(year: start_date.year, month: start_date.month).sum(:total)
     @results = Practice.where(date: start_date.in_time_zone.all_month).sum(:shooting_count)
+    @remaining_shooting_counts = calculate_remaining_shots
   end
 
   # GET /practices/1 or /practices/1.json
@@ -68,6 +69,17 @@ class PracticesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_practice
     @practice = Practice.find(params[:id])
+  end
+
+  def calculate_remaining_shots
+    remaining_shots = @targets - @results
+    if @targets.zero?
+      '目標射数が設定されていません'
+    elsif remaining_shots <= 0
+      '目標を達成しました'
+    else
+      "残り#{remaining_shots}射"
+    end
   end
 
   # Only allow a list of trusted parameters through.
