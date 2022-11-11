@@ -5,11 +5,11 @@ class PracticesController < ApplicationController
   # GET /practices or /practices.json
   def index
     practices = params[:memos] == 'important' ? Practice.where(important: true) : Practice.all
-    @practices = practices.order(fixed: :desc, date: :desc).page(params[:page]).per(10)
-    @calendar_displayed_practices = Practice.all
+    @practices = practices.where(user_id: current_user.id).order(fixed: :desc, date: :desc).page(params[:page]).per(10)
+    @calendar_displayed_practices = Practice.where(user_id: current_user.id)
     start_date = params.fetch(:start_date, Date.today).to_date
-    @targets = Target.where(year: start_date.year, month: start_date.month).sum(:total)
-    @results = Practice.where(date: start_date.in_time_zone.all_month).sum(:shooting_count)
+    @targets = Target.where(year: start_date.year, month: start_date.month, user_id: current_user.id).sum(:total)
+    @results = Practice.where(date: start_date.in_time_zone.all_month, user_id: current_user.id).sum(:shooting_count)
     @remaining_shooting_counts = calculate_remaining_shots
   end
 
