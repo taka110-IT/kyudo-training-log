@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_20_093122) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_13_041003) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_093122) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.index ["date"], name: "index_practices_on_date", unique: true
+    t.index %w[date user_id], name: "index_practices_on_date_and_user_id", unique: true
     t.index ["user_id"], name: "index_practices_on_user_id"
   end
 
@@ -35,7 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_093122) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_targets_on_user_id"
-    t.index ["year", "month"], name: "index_targets_on_year_and_month", unique: true
+    t.index %w[year month user_id], name: "index_targets_on_year_and_month_and_user_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
