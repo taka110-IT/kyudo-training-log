@@ -20,6 +20,7 @@
 
     <% calendar_displayed_practices.each do |calendar_displayed_practice| %>
       <div>
+        <% calendar_displayed_practice.shooting_count ||= 0 %>
         <%= link_to "#{calendar_displayed_practice.shooting_count}射",
                     practice_path(calendar_displayed_practice),
                     data: { turbo_frame: "practices_modal" } %>
@@ -37,6 +38,7 @@
 
   <div id="practices">
     <% @practices.each do |practice| %>
+      <% practice.shooting_count ||= 0 %>
       <%= render practice %>
       <p>
         <%= link_to "編集", edit_practice_path(practice), data: { turbo_frame: "_top" } %>
