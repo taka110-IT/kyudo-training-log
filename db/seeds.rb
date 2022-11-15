@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-User.create!(email: 'user1@user.com', password: 'useruser')
+User.create!(email: 'user1@user.com', password: 'Useruser1')
 
 Practice.create!(
   [
