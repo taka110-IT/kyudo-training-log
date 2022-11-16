@@ -1,12 +1,13 @@
 class PracticesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_practice, only: %i[show edit update destroy]
-  before_action :set_target, only: %i[index]
 
   def index
     practices = params[:memos] == 'important' ? Practice.where(important: true) : Practice.all
     @practices = practices.where(user_id: current_user.id).order(fixed: :desc, date: :desc).page(params[:page]).per(10)
     @calendar_displayed_practices = Practice.where(user_id: current_user.id)
+    start_date = params.fetch(:start_date, Time.zone.today).to_date
+    target(start_date)
   end
 
   def show; end
@@ -22,7 +23,7 @@ class PracticesController < ApplicationController
 
     respond_to do |format|
       if @practice.save
-        set_target
+        target(@practice.date)
         update_target_achievement
         format.html { redirect_to practices_path, notice: 'Practice was successfully created.' }
         format.json { render :show, status: :created, location: @practice }
@@ -36,7 +37,7 @@ class PracticesController < ApplicationController
   def update
     respond_to do |format|
       if @practice.update(practice_params)
-        set_target
+        target(@practice.date)
         update_target_achievement
         format.html { redirect_to practices_path, notice: 'Practice was successfully updated.' }
         format.json { render :show, status: :ok, location: @practice }
@@ -51,7 +52,7 @@ class PracticesController < ApplicationController
     @practice.destroy
 
     respond_to do |format|
-      set_target
+      target(@practice.date)
       update_target_achievement
       format.html { redirect_to practices_url, notice: 'Practice was successfully destroyed.', status: :see_other }
       format.json { head :no_content }
@@ -64,8 +65,7 @@ class PracticesController < ApplicationController
     @practice = Practice.find(params[:id])
   end
 
-  def set_target
-    start_date = set_start_date
+  def target(start_date)
     @target_data = Target.where(year: start_date.year, month: start_date.month, user_id: current_user.id)
     @target = set_target_total
     result(start_date)
@@ -74,10 +74,6 @@ class PracticesController < ApplicationController
   def result(start_date)
     @result = Practice.where(date: start_date.in_time_zone.all_month, user_id: current_user.id).sum(:shooting_count)
     @remaining_to_target = set_remaining_to_target
-  end
-
-  def set_start_date
-    params.fetch(:start_date, Time.zone.today).to_date
   end
 
   def set_target_total
