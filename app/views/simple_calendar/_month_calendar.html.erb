@@ -1,8 +1,11 @@
 <div class="simple-calendar">
   <div>
     <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-    <p>計：<%= @results %>射／目標：<%= @targets %>射</p>
-    <p><%= @remaining_shooting_counts %></p>
+    <p>計：<%= @result %>射／目標：<%= @target %></p>
+    <p><%= @remaining_to_target %></p>
+    <div>
+      <%= render 'achievement_message' %>
+    </div>
     <hr>
   </div>
   <div class="calendar-heading">

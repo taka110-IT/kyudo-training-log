@@ -3,10 +3,10 @@
 <hr>
 <%= turbo_frame_tag 'targets_input' do %>
   <div>
-    <% if @targets.zero? %>
-    <%= link_to "#{Time.current.year}年#{Time.current.month}月の目標を設定する", targets_new_path, data: { turbo_frame: "targets_modal" } %>
-  </div>
+    <% if @target_data.blank? %>
+      <%= link_to "#{Time.current.year}年#{Time.current.month}月の目標を設定する", targets_new_path, data: { turbo_frame: "targets_modal" } %>
     <% end %>
+  </div>
 <% end %>
 
 <div>
