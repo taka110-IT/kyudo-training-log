@@ -1,1 +1,16 @@
-<%=  @target_data.blank? ? 0 : @target_data.first[:achievement] %>
+<%= render "achievement_message_modal" do %>
+  <%= turbo_frame_tag "achievement_message" do %>
+    <%= form_with(model: @target_data.first, data: { action: "turbo:submit-end->targets-modal#close", turbo_frame: "_top" }) do |form| %>
+
+      <div>
+        達成！！
+      </div>
+
+      <div>
+        <%= form.hidden_field :achievement, value: true %>
+        <%= form.hidden_field :user_id, value: current_user.id %>
+        <%= form.submit '閉じる' %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

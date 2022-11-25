@@ -8,6 +8,7 @@ class PracticesController < ApplicationController
     @calendar_displayed_practices = Practice.where(user_id: current_user.id)
     start_date = params.fetch(:start_date, Time.zone.today).to_date
     target(start_date)
+    result(start_date)
   end
 
   def show; end
@@ -23,8 +24,6 @@ class PracticesController < ApplicationController
 
     respond_to do |format|
       if @practice.save
-        target(@practice.date)
-        update_target_achievement
         format.html { redirect_to practices_path, notice: 'Practice was successfully created.' }
         format.json { render :show, status: :created, location: @practice }
       else
@@ -38,7 +37,8 @@ class PracticesController < ApplicationController
     respond_to do |format|
       if @practice.update(practice_params)
         target(@practice.date)
-        update_target_achievement
+        result(@practice.date)
+        cancel_target_achievement
         format.html { redirect_to practices_path, notice: 'Practice was successfully updated.' }
         format.json { render :show, status: :ok, location: @practice }
       else
@@ -53,7 +53,8 @@ class PracticesController < ApplicationController
 
     respond_to do |format|
       target(@practice.date)
-      update_target_achievement
+      result(@practice.date)
+      cancel_target_achievement
       format.html { redirect_to practices_url, notice: 'Practice was successfully destroyed.', status: :see_other }
       format.json { head :no_content }
     end
@@ -67,8 +68,6 @@ class PracticesController < ApplicationController
 
   def target(start_date)
     @target_data = Target.where(year: start_date.year, month: start_date.month, user_id: current_user.id)
-    @target = set_target_total
-    result(start_date)
   end
 
   def result(start_date)
@@ -76,34 +75,21 @@ class PracticesController < ApplicationController
     @remaining_to_target = set_remaining_to_target
   end
 
-  def set_target_total
-    if @target_data.blank?
-      '0射'
-    else
-      "#{@target_data.first[:total]}射"
-    end
-  end
-
   def set_remaining_to_target
     return '目標射数が設定されていません' if @target_data.blank?
 
-    remaining_shots = @target_data.first[:total] - @result
-    if (remaining_shots <= 0) && (@target_data.first[:achievement] == true)
+    @remaining_shots = @target_data.first[:total] - @result
+    if @remaining_shots <= 0
       '目標を達成しました'
     else
-      "残り#{remaining_shots}射"
+      "残り#{@remaining_shots}射"
     end
   end
 
-  def update_target_achievement
-    return if @target_data.blank?
+  def cancel_target_achievement
+    return if @target_data.blank? || !(@remaining_shots.positive? && (@target_data.first[:achievement] == true))
 
-    remaining_shots = @target_data.first[:total] - @result
-    if (remaining_shots <= 0) && (@target_data.first[:achievement] == false)
-      @target_data.first.update(achievement: true)
-    elsif remaining_shots.positive? && (@target_data.first[:achievement] == true)
-      @target_data.first.update(achievement: false)
-    end
+    @target_data.first.update(achievement: false)
   end
 
   def practice_params
