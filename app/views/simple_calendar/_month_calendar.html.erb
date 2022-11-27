@@ -1,8 +1,18 @@
 <div class="simple-calendar">
   <div>
     <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-    <p>計：<%= @results %>射／目標：<%= @targets %>射</p>
-    <p><%= @remaining_shooting_counts %></p>
+    <p>計：<%= @result %>射／
+      目標：<%= @target_data.blank? ? '0射' : "#{@target_data.first[:total]}射" %></p>
+    <p><%= @remaining_to_target %></p>
+
+    <%= turbo_frame_tag 'achievement_message' do %>
+      <% if !@target_data.blank? && (@remaining_shots <= 0) && (@target_data.first[:achievement] == false) %>
+        <div>
+          <%= render partial: 'practices/achievement_message', data: { turbo_frame: "achievement_message_modal" } %>
+        </div>
+      <% end %>
+    <% end %>
+
     <hr>
   </div>
   <div class="calendar-heading">

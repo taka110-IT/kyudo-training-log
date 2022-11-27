@@ -1,0 +1,14 @@
+<%= turbo_frame_tag "achievement_message_modal" do %>
+  <div class="modal fade" data-controller="achievement-message-modal" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">目標達成メッセージ</h5>
+        </div>
+        <div class="modal-body">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

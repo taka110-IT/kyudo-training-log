@@ -3,8 +3,8 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">目標射数を入力</h5>
-          <%= button_to '閉じる', practices_path, method: :get, data: { turbo_frame: "_top" } %>
+          <h5 class="modal-title"><%= "#{Time.current.year}年#{Time.current.month}月の目標を入力" %></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <%= yield %>

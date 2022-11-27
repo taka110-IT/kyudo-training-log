@@ -9,3 +9,6 @@ application.register("practices-modal", PracticesModalController)
 
 import TargetsModalController from "./targets_modal_controller"
 application.register("targets-modal", TargetsModalController)
+
+import AchievementMessageModalController from "./achievement_message_modal_controller"
+application.register("achievement-message-modal", AchievementMessageModalController)
