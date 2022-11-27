@@ -1,12 +1,21 @@
 <%= turbo_frame_tag @practice do %>
   <%= render "practices_modal", title: "詳細" do %>
 
-    <%= render @practice %>
+    <p>
+      <%= @practice.important == true ? '⭐️' : '' %>
+      <%= @practice.fixed == true ? '📌固定されたメモ' : '' %>
+    </p>
+
+    <p>
+      <%= @practice.shooting_count.blank? ? 0 : "#{@practice.shooting_count}" %>射
+    </p>
+
+    <p>
+      <%= @practice.memo.blank? ? 'メモはありません。' : @practice.memo %>
+    </p>
 
     <div>
-      <%= link_to "編集", edit_practice_path(@practice), data: { turbo_frame: "_top" } %> |
-      <%= link_to "記録を削除する", @practice, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？", turbo_frame: "_top" } %> |
-      <%= link_to '閉じる', practices_path, data: { turbo_frame: "_top" } %>
+      <%= link_to "編集", edit_practice_path(@practice), data: { turbo_frame: "_top" } %>
     </div>
   <% end %>
 <% end %>
