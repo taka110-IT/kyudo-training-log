@@ -1,14 +1,18 @@
 class PracticesController < ApplicationController
-  before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: %i[index]
   before_action :set_practice, only: %i[show edit update destroy]
 
   def index
-    practices = params[:memos] == 'important' ? Practice.where(important: true) : Practice.all
-    @practices = practices.where(user_id: current_user.id).order(fixed: :desc, date: :desc).page(params[:page]).per(10)
-    @calendar_displayed_practices = Practice.where(user_id: current_user.id)
-    start_date = params.fetch(:start_date, Time.zone.today).to_date
-    target(start_date)
-    result(start_date)
+    if user_signed_in?
+      practices = params[:memos] == 'important' ? Practice.where(important: true) : Practice.all
+      @practices = practices.where(user_id: current_user.id).order(fixed: :desc, date: :desc).page(params[:page]).per(10)
+      @calendar_displayed_practices = Practice.where(user_id: current_user.id)
+      start_date = params.fetch(:start_date, Time.zone.today).to_date
+      target(start_date)
+      result(start_date)
+    else
+      render template: 'welcome/index'
+    end
   end
 
   def show; end
