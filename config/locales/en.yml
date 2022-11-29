@@ -215,3 +215,40 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
+  simple_calendar:
+    previous: "<<"
+    next: ">>"
+  views:
+    achievement:
+      title: Target achieved!
+      message: Congratulations! The more you practice, the better you’ll become!
+    common:
+      back: Back
+      destroy: Destroy
+      edit: Edit
+    edit:
+      title: Edit Practice
+    form:
+      fixed: 📌Fixed
+      important: ⭐️Important
+    index:
+      no_target: Targets not input.
+      remaining_shots: "Remained:%{count}shots"
+      result: Result：
+      shooting_counts: "%{count}shots"
+      target: Target：
+      target_input: "Target inputs for %{year}-%{month}"
+    new:
+      title: Input Practice
+    pagination:
+      first: '<<'
+      last: '>>'
+      previous: '<'
+      next: '>'
+      truncate: '...'
+    show:
+      date: "%{date} Logs"
+      no_memos: No Memos
+    tab:
+      all: All Memos
+      important: Important Memos

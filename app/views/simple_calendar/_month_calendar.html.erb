@@ -1,9 +1,27 @@
 <div class="simple-calendar">
   <div>
-    <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-    <p>計：<%= @result %>射／
-      目標：<%= @target_data.blank? ? '0射' : "#{@target_data.first[:total]}射" %></p>
-    <p><%= @remaining_to_target %></p>
+    <span class="calendar-title">
+      <%= start_date.year %><%= t 'datetime.prompts.year' %>
+      <%= t('date.month_names')[start_date.month] %>
+    </span>
+
+    <p>
+      <%= t 'views.index.result' %>
+      <%= t('views.index.shooting_counts', count: @result) %>／
+      <%= t 'views.index.target' %>
+      <%= @target_data.blank? ?
+            t('views.index.shooting_counts', count: 0)
+            : t('views.index.shooting_counts', count: @target_data.first[:total]) %>
+    </p>
+
+    <p><% if @target_data.blank? %>
+        <%= t 'views.index.no_target' %>
+      <% elsif @remaining_shots <= 0 %>
+        <%= t 'views.achievement.title' %>
+      <% else %>
+        <%= t('views.index.remaining_shots', count: @remaining_shots ) %>
+      <% end %>
+    </p>
 
     <%= turbo_frame_tag 'achievement_message' do %>
       <% if !@target_data.blank? && (@remaining_shots <= 0) && (@target_data.first[:achievement] == false) %>
@@ -17,7 +35,7 @@
   </div>
   <div class="calendar-heading">
     <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
-    <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+    <span class="calendar-title"><%= start_date.year %><%= t 'datetime.prompts.year' %><%= t('date.month_names')[start_date.month] %></span>
     <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
   </div>
 

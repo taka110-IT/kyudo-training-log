@@ -10,6 +10,7 @@ class PracticesController < ApplicationController
       start_date = params.fetch(:start_date, Time.zone.today).to_date
       target(start_date)
       result(start_date)
+      set_remaining_to_target
     else
       render template: 'welcome/index'
     end
@@ -42,6 +43,7 @@ class PracticesController < ApplicationController
       if @practice.update(practice_params)
         target(@practice.date)
         result(@practice.date)
+        set_remaining_to_target
         cancel_target_achievement
         format.html { redirect_to practices_path, notice: 'Practice was successfully updated.' }
         format.json { render :show, status: :ok, location: @practice }
@@ -58,6 +60,7 @@ class PracticesController < ApplicationController
     respond_to do |format|
       target(@practice.date)
       result(@practice.date)
+      set_remaining_to_target
       cancel_target_achievement
       format.html { redirect_to practices_url, notice: 'Practice was successfully destroyed.', status: :see_other }
       format.json { head :no_content }
@@ -76,18 +79,12 @@ class PracticesController < ApplicationController
 
   def result(start_date)
     @result = Practice.where(date: start_date.in_time_zone.all_month, user_id: current_user.id).sum(:shooting_count)
-    @remaining_to_target = set_remaining_to_target
   end
 
   def set_remaining_to_target
-    return '目標射数が設定されていません' if @target_data.blank?
+    return if @target_data.blank?
 
     @remaining_shots = @target_data.first[:total] - @result
-    if @remaining_shots <= 0
-      '目標を達成しました'
-    else
-      "残り#{@remaining_shots}射"
-    end
   end
 
   def cancel_target_achievement

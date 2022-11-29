@@ -39,7 +39,7 @@ ja:
     - 金曜日
     - 土曜日
     formats:
-      default: "%Y/%m/%d"
+      default: "%Y年%m月%d日"
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
     month_names:
@@ -179,3 +179,40 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  simple_calendar:
+    previous: "<<"
+    next: ">>"
+  views:
+    achievement:
+      title: 目標を達成しました！
+      message: おめでとうございます！着実に成長していますよ！
+    common:
+      back: 戻る
+      destroy: 削除する
+      edit: 編集
+    edit:
+      title: 練習記録を編集
+    form:
+      fixed: 📌固定表示する
+      important: ⭐️大切な記録
+    index:
+      no_target: 目標射数が入力されていません
+      remaining_shots: "残り%{count}射"
+      result: 計：
+      shooting_counts: "%{count}射"
+      target: 目標：
+      target_input: "%{year}年%{month}月の目標を入力"
+    new:
+      title: 練習記録を入力
+    pagination:
+      first: '<<'
+      last: '>>'
+      previous: '<'
+      next: '>'
+      truncate: '...'
+    show:
+      date: "%{date}の記録"
+      no_memos: メモはありません
+    tab:
+      all: 全てのメモ
+      important: 大切なメモ
