@@ -1,0 +1,41 @@
+en:
+  activerecord:
+    models:
+      practice: Practice  #g
+      target: Target  #g
+      user: User  #g
+
+    attributes:
+      practice:
+        date: Date  #g
+        fixed: Fixed  #g
+        important: Important  #g
+        memo: Memo  #g
+        user: :activerecord.models.user  #g
+
+      target:
+        achievement: Achievement  #g
+        month: Month  #g
+        total: Total  #g
+        user: :activerecord.models.user  #g
+        year: Year  #g
+
+      user:
+        confirmation_sent_at: Confirmation sent at  #g
+        confirmation_token: Confirmation token  #g
+        confirmed_at: Confirmed at  #g
+        current_sign_in_at: Current sign in at  #g
+        current_sign_in_ip: Current sign in ip  #g
+        email: Email  #g
+        encrypted_password: Encrypted password  #g
+        failed_attempts: Failed attempts  #g
+        last_sign_in_at: Last sign in at  #g
+        last_sign_in_ip: Last sign in ip  #g
+        locked_at: Locked at  #g
+        practices: Practices  #g
+        remember_created_at: Remember created at  #g
+        reset_password_sent_at: Reset password sent at  #g
+        reset_password_token: Reset password token  #g
+        targets: Targets  #g
+        unconfirmed_email: Unconfirmed email  #g
+        unlock_token: Unlock token  #g
