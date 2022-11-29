@@ -53,6 +53,7 @@ gem "bootsnap", require: false
 
 gem "simple_calendar", "~> 2.4"
 gem 'devise'
+gem 'devise-i18n'
 gem 'kaminari'
 gem 'i18n_generators'
 

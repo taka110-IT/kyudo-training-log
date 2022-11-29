@@ -19,23 +19,3 @@ ja:
         total: 合計  #g
         user: :activerecord.models.user  #g
         year: 年  #g
-
-      user:
-        confirmation_sent_at: 送信された確認  #g
-        confirmation_token: 確認トークン  #g
-        confirmed_at: で確認  #g
-        current_sign_in_at: 現在のサインイン  #g
-        current_sign_in_ip: 現在のサインイン IP  #g
-        email: Eメール  #g
-        encrypted_password: 暗号化パスワード  #g
-        failed_attempts: 試行の失敗  #g
-        last_sign_in_at: 最後のサインイン  #g
-        last_sign_in_ip: 最後のサインイン IP  #g
-        locked_at: でロック  #g
-        practices: プラクティス  #g
-        remember_created_at: 作成日時を記憶  #g
-        reset_password_sent_at: に送信されたパスワードのリセット  #g
-        reset_password_token: パスワードトークンのリセット  #g
-        targets: ターゲット  #g
-        unconfirmed_email: 未確認のメール  #g
-        unlock_token: ロック解除トークン  #g
