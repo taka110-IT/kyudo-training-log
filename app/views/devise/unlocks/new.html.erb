@@ -1,4 +1,4 @@
-<h2>Resend unlock instructions</h2>
+<h2><%= t 'devise.unlocks.new.resend_unlock_instructions' %></h2>
 
 <%= form_with model: @user, url: unlock_path(resource_name), data: { turbo: false }, local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -9,7 +9,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Resend unlock instructions" %>
+    <%= f.submit t('devise.unlocks.new.resend_unlock_instructions') %>
   </div>
 <% end %>
 
