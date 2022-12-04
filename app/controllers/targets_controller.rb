@@ -8,7 +8,7 @@ class TargetsController < ApplicationController
 
     respond_to do |format|
       if @target.save
-        format.html { redirect_to root_path, notice: "Target was successfully created." }
+        format.html { redirect_to root_path, notice: t('controllers.targets.create') }
         format.json { render :show, status: :created, location: @target }
       else
         format.html { render :new, status: :unprocessable_entity }

@@ -53,7 +53,9 @@ gem "bootsnap", require: false
 
 gem "simple_calendar", "~> 2.4"
 gem 'devise'
+gem 'devise-i18n'
 gem 'kaminari'
+gem 'i18n_generators'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -75,6 +77,7 @@ group :development do
   gem 'rubocop-rails', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rspec', require: false
+  gem 'letter_opener_web', '~> 2.0'
 end
 
 group :test do

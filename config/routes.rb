@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   root to: 'practices#index'
   resources :practices
   resources :targets, only: %i[new create update]
+
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end

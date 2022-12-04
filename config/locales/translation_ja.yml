@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    models:
+      practice: 練習
+      target: 目標
+      user: ユーザー
+
+    attributes:
+      practice:
+        date: 日付
+        fixed: 📌
+        important: ⭐️
+        memo: メモ
+        shooting_count: 射数
+        user: :activerecord.models.user
+
+      target:
+        achievement: 達成
+        month: 月
+        total: 目標射数
+        user: :activerecord.models.user
+        year: 年

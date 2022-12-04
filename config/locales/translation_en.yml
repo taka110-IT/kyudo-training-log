@@ -1,0 +1,22 @@
+en:
+  activerecord:
+    models:
+      practice: Practice
+      target: Target
+      user: User
+
+    attributes:
+      practice:
+        date: Date
+        fixed: 📌
+        important: ⭐
+        memo: Memo
+        shooting_count: Shooting_count
+        user: :activerecord.models.user
+
+      target:
+        achievement: Achievement
+        month: Month
+        total: Target shooting count
+        user: :activerecord.models.user
+        year: Year

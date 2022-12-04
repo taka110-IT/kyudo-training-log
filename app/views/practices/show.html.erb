@@ -1,21 +1,23 @@
 <%= turbo_frame_tag @practice do %>
-  <%= render "practices_modal", title: "詳細" do %>
+  <%= render "practices_modal" do %>
 
     <p>
-      <%= @practice.important == true ? '⭐️' : '' %>
-      <%= @practice.fixed == true ? '📌固定されたメモ' : '' %>
+      <%= @practice.important == true ? t('activerecord.attributes.practice.important') : '' %>
+      <%= @practice.fixed == true ? t('activerecord.attributes.practice.fixed') : '' %>
     </p>
 
     <p>
-      <%= @practice.shooting_count.blank? ? 0 : "#{@practice.shooting_count}" %>射
+      <%= @practice.shooting_count.blank? ?
+            t('views.index.shooting_counts', count: 0)
+          : t('views.index.shooting_counts', count: @practice.shooting_count) %>
     </p>
 
     <p>
-      <%= @practice.memo.blank? ? 'メモはありません。' : @practice.memo %>
+      <%= @practice.memo.blank? ? t('views.show.no_memos') : @practice.memo %>
     </p>
 
     <div>
-      <%= link_to "編集", edit_practice_path(@practice), data: { turbo_frame: "_top" } %>
+      <%= link_to t('views.common.edit'), edit_practice_path(@practice), data: { turbo_frame: "_top" } %>
     </div>
   <% end %>
 <% end %>

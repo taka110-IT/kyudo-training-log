@@ -1,11 +1,11 @@
-<h1>練習記録の編集</h1>
+<h1><%= t 'views.edit.title' %></h1>
 
 <%= render "form", practice: @practice %>
 
 <div>
-  <%= link_to "記録を削除する", @practice, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？", turbo_frame: "_top" } %>
+  <%= link_to t('views.common.destroy'), @practice, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？", turbo_frame: "_top" } %>
 </div>
 
 <div>
-  <%= link_to "一覧に戻る", practices_path, data: { turbo_frame: "_top" } %>
+  <%= link_to t('views.common.back'), practices_path, data: { turbo_frame: "_top" } %>
 </div>

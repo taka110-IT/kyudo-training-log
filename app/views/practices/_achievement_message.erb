@@ -3,13 +3,13 @@
     <%= form_with(model: @target_data.first, data: { action: "turbo:submit-end->targets-modal#close", turbo_frame: "_top" }) do |form| %>
 
       <div>
-        達成！！
+        <%= t 'views.achievement.message' %>
       </div>
 
       <div>
         <%= form.hidden_field :achievement, value: true %>
         <%= form.hidden_field :user_id, value: current_user.id %>
-        <%= form.submit '閉じる' %>
+        <%= form.submit t('views.common.back') %>
       </div>
     <% end %>
   <% end %>

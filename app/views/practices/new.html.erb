@@ -1,9 +1,9 @@
-<h1>今日の練習記録</h1>
+<h1><%= t 'views.new.title' %></h1>
 
 <%= render "form", practice: @practice %>
 
 <br>
 
 <div>
-  <%= link_to "一覧に戻る", practices_path, data: { turbo_frame: "_top" } %>
+  <%= link_to t('views.common.back'), practices_path, data: { turbo_frame: "_top" } %>
 </div>

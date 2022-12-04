@@ -2,7 +2,7 @@
   <%= form_with(model: target, data: { action: "turbo:submit-end->targets-modal#close", turbo_frame: "_top" }) do |form| %>
     <% if target.errors.any? %>
       <div style="color: red">
-        <h2><%= pluralize(target.errors.count, "error") %> prohibited this target from being saved:</h2>
+        <h2><%= t 'errors.template.body' %></h2>
 
         <ul>
           <% target.errors.each do |error| %>

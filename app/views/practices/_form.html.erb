@@ -1,7 +1,7 @@
 <%= form_with(model: practice) do |form| %>
   <% if practice.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(practice.errors.count, "error") %> prohibited this practice from being saved:</h2>
+      <h2><%= t 'errors.template.body' %></h2>
 
       <ul>
         <% practice.errors.each do |error| %>
@@ -27,12 +27,12 @@
   </div>
 
   <div>
-    <%= form.label :fixed, style: "display: block" %>
+    <%= form.label t('views.form.fixed'), style: "display: block" %>
     <%= form.check_box :fixed %>
   </div>
 
   <div>
-    <%= form.label :important, style: "display: block" %>
+    <%= form.label t('views.form.important'), style: "display: block" %>
     <%= form.check_box :important %>
   </div>
 

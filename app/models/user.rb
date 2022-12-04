@@ -12,6 +12,6 @@ class User < ApplicationRecord
   def password_complexity
     return if password.blank? || password =~ /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])/
 
-    errors.add :password, 'Complexity requirement not met. Please use: 1 uppercase, 1 lowercase and 1 digit'
+    errors.add :password, :complexity_requirement_not_met
   end
 end
