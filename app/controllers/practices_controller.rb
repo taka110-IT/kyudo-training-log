@@ -29,7 +29,7 @@ class PracticesController < ApplicationController
 
     respond_to do |format|
       if @practice.save
-        format.html { redirect_to practices_path, notice: 'Practice was successfully created.' }
+        format.html { redirect_to practices_path, notice: t('controllers.practices.create') }
         format.json { render :show, status: :created, location: @practice }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -45,7 +45,7 @@ class PracticesController < ApplicationController
         result(@practice.date)
         set_remaining_to_target
         cancel_target_achievement
-        format.html { redirect_to practices_path, notice: 'Practice was successfully updated.' }
+        format.html { redirect_to practices_path, notice: t('controllers.practices.update') }
         format.json { render :show, status: :ok, location: @practice }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -62,7 +62,7 @@ class PracticesController < ApplicationController
       result(@practice.date)
       set_remaining_to_target
       cancel_target_achievement
-      format.html { redirect_to practices_url, notice: 'Practice was successfully destroyed.', status: :see_other }
+      format.html { redirect_to practices_url, notice: t('controllers.practices.destroy'), status: :see_other }
       format.json { head :no_content }
     end
   end

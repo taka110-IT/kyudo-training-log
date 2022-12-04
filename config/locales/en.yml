@@ -252,3 +252,10 @@ en:
     tab:
       all: All Memos
       important: Important Memos
+  controllers:
+    practices:
+      create: "Practice was successfully created."
+      destroy: "Practice was successfully updated."
+      update: "Practice was successfully destroyed."
+    targets:
+      create: "Targets set for this month."

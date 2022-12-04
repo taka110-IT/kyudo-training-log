@@ -216,3 +216,10 @@ ja:
     tab:
       all: 全てのメモ
       important: 大切なメモ
+  controllers:
+    practices:
+      create: 記録を保存しました。
+      destroy: 記録を削除しました。
+      update: 記録を更新しました。
+    targets:
+      create: 今月の目標を設定しました。

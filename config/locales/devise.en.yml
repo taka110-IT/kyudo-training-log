@@ -109,6 +109,7 @@ en:
   errors:
     messages:
       already_confirmed: "was already confirmed, please try signing in"
+      complexity_requirement_not_met: ": Complexity requirement not met. Please use: 1 uppercase, 1 lowercase and 1 digit"
       confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
       expired: "has expired, please request a new one"
       not_found: "not found"
