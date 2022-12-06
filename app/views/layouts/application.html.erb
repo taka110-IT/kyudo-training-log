@@ -14,7 +14,7 @@
   <body>
     <header>
       <nav>
-        <div><h1><%= t 'layouts.application.title' %></h1></div>
+        <div><%= link_to image_tag('title.png', alt: t('layouts.application.title')), root_path, data: { turbo_frame: "_top" } %></div>
         <p class="navbar-text pull-right">
           <% if user_signed_in? %>
             <%= t 'layouts.application.logged_in_as' %><strong><%= current_user.email %></strong>
