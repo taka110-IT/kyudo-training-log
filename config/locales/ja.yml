@@ -197,10 +197,10 @@ ja:
       important: ⭐️大切な記録
     index:
       no_target: 目標射数が入力されていません
-      remaining_shots: "残り%{count}射"
-      result: 計：
+      remaining_shots: "目標達成まで　%{count}射"
+      result: 現在
       shooting_counts: "%{count}射"
-      target: 目標：
+      target: 目標
       target_input: "%{year}年%{month}月の目標を入力"
     new:
       title: 練習記録を入力

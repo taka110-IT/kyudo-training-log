@@ -14,8 +14,10 @@
   <body>
     <header>
       <nav>
-        <div><%= link_to image_tag('title.png', alt: t('layouts.application.title')), root_path, data: { turbo_frame: "_top" } %></div>
-        <p class="navbar-text pull-right">
+        <div class="text-center">
+          <%= link_to image_tag('title.png', alt: t('layouts.application.title')), root_path, data: { turbo_frame: "_top" } %>
+        </div>
+        <p class="navbar-text text-center">
           <% if user_signed_in? %>
             <%= t 'layouts.application.logged_in_as' %><strong><%= current_user.email %></strong>
             <%= link_to t('layouts.application.edit_profile'), edit_user_registration_path, class: 'navbar-link' %>

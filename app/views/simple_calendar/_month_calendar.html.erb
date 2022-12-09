@@ -1,25 +1,43 @@
 <div class="simple-calendar">
-  <div>
-    <span class="calendar-title">
-      <%= start_date.year %><%= t 'datetime.prompts.year' %>
-      <%= t('date.month_names')[start_date.month] %>
-    </span>
+  <div class="text-center">
+    <div class="container-fluid col-4 my-3">
+      <div class="card">
+        <div class="card-header">
+          <span class="fs-4">
+            <%= start_date.year %><%= t 'datetime.prompts.year' %>
+            <%= t('date.month_names')[start_date.month] %>
+          </span>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <span class="fs-5 me-3"><%= t 'views.index.target' %></span>
+            <span class="fs-3">
+              <%= @target_data.blank? ?
+                    t('views.index.shooting_counts', count: 0)
+                    : t('views.index.shooting_counts', count: @target_data.first[:total]) %>
+            </span>
+          </li>
+          <li class="list-group-item">
+            <span class="fs-5 me-3"><%= t 'views.index.result' %></span>
+            <span class="fs-3">
+              <% if @target_data.blank? || @remaining_shots.positive? %>
+                <span><%= t('views.index.shooting_counts', count: @result) %></span>
+              <% else %>
+               <span class="text-danger"><%= t('views.index.shooting_counts', count: @result)  %></span>
+              <% end %>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
 
-    <p>
-      <%= t 'views.index.result' %>
-      <%= t('views.index.shooting_counts', count: @result) %>／
-      <%= t 'views.index.target' %>
-      <%= @target_data.blank? ?
-            t('views.index.shooting_counts', count: 0)
-            : t('views.index.shooting_counts', count: @target_data.first[:total]) %>
-    </p>
-
-    <p><% if @target_data.blank? %>
-        <%= t 'views.index.no_target' %>
+    <p class="fs-5">
+      <% if @target_data.blank? %>
+        <span class="text-success"><%= t 'views.index.no_target' %></span>
       <% elsif @remaining_shots <= 0 %>
-        <%= t 'views.achievement.title' %>
+        <span class="text-danger bi bi-award"><%= t 'views.achievement.title' %></span>
       <% else %>
-        <%= t('views.index.remaining_shots', count: @remaining_shots ) %>
+        <span><%= t('views.index.remaining_shots', count: @remaining_shots ) %></span>
       <% end %>
     </p>
 
@@ -30,38 +48,38 @@
         </div>
       <% end %>
     <% end %>
-
-    <hr>
   </div>
-  <div class="calendar-heading">
-    <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
-    <span class="calendar-title"><%= start_date.year %><%= t 'datetime.prompts.year' %><%= t('date.month_names')[start_date.month] %></span>
-    <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
-  </div>
+  <div class="container-fluid col-10">
+    <div class="calendar-heading mb-1 text-center">
+      <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: "me-2 text-decoration-none fs-5" %>
+      <span class="calendar-title fs-5"><%= start_date.year %><%= t 'datetime.prompts.year' %><%= t('date.month_names')[start_date.month] %></span>
+      <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: "ms-2 text-decoration-none fs-5" %>
+    </div>
 
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <% date_range.slice(0, 7).each do |day| %>
-          <th><%= t('date.abbr_day_names')[day.wday] %></th>
-        <% end %>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% date_range.each_slice(7) do |week| %>
+    <table class="table table-bordered border-dark text-center" >
+      <thead>
         <tr>
-          <% week.each do |day| %>
-            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-              <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
-                <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
-              <% else %>
-                <% passed_block.call day, sorted_events.fetch(day, []) %>
-              <% end %>
-            <% end %>
+          <% date_range.slice(0, 7).each do |day| %>
+            <th><%= t('date.abbr_day_names')[day.wday] %></th>
           <% end %>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+
+      <tbody>
+        <% date_range.each_slice(7) do |week| %>
+          <tr>
+            <% week.each do |day| %>
+              <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+                <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
+                  <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
+                <% else %>
+                  <% passed_block.call day, sorted_events.fetch(day, []) %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

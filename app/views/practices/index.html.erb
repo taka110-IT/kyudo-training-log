@@ -1,32 +1,33 @@
-<%= turbo_frame_tag 'targets_input' do %>
+<div class="container-fluid d-grid gap-3 text-center">
+  <%= turbo_frame_tag 'targets_input' do %>
+    <div>
+      <% if @target_data.blank? %>
+        <%= link_to t('views.index.target_input', year: Time.current.year, month: Time.current.month), new_target_path, data: { turbo_frame: "targets_modal" }, class: "bi bi-bullseye btn btn-outline-success btn-lg col-4" %>
+      <% end %>
+    </div>
+  <% end %>
+
   <div>
-    <% if @target_data.blank? %>
-      <%= link_to t('views.index.target_input', year: Time.current.year, month: Time.current.month), new_target_path, data: { turbo_frame: "targets_modal" } %>
-    <% end %>
+    <%= link_to t('views.new.title'), new_practice_path, data: { turbo_frame: "_top" }, class: "bi bi-pencil btn btn-outline-success btn-lg col-4" %>
   </div>
-<% end %>
-
-<div>
-  <%= link_to t('views.new.title'), new_practice_path, data: { turbo_frame: "_top" } %>
 </div>
-<hr>
 
-<%= turbo_frame_tag 'calendar' do %>
-  <%= month_calendar(events: @calendar_displayed_practices) do |date, calendar_displayed_practices| %>
-    <%= date.month %>/<%= date.day %>
+<div class="container-fluid my-4">
+  <%= turbo_frame_tag 'calendar' do %>
+    <%= month_calendar(events: @calendar_displayed_practices) do |date, calendar_displayed_practices| %>
+      <%= date.day %>
 
-    <% calendar_displayed_practices.each do |calendar_displayed_practice| %>
-      <div>
-        <% calendar_displayed_practice.shooting_count ||= 0 %>
-        <%= link_to t('views.index.shooting_counts', count: calendar_displayed_practice.shooting_count),
-                    practice_path(calendar_displayed_practice),
-                    data: { turbo_frame: "practices_modal" } %>
-      </div>
+      <% calendar_displayed_practices.each do |calendar_displayed_practice| %>
+        <div>
+          <% calendar_displayed_practice.shooting_count ||= 0 %>
+          <%= link_to t('views.index.shooting_counts', count: calendar_displayed_practice.shooting_count),
+                      practice_path(calendar_displayed_practice),
+                      data: { turbo_frame: "practices_modal" } %>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
-
-<hr>
+</div>
 
 <%= turbo_frame_tag 'practices-list' do %>
   <%= render 'tabs' %>
