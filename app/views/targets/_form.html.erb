@@ -1,5 +1,6 @@
+<div class="container-fluid row">
 <%= turbo_frame_tag target do %>
-  <%= form_with(model: target, data: { action: "turbo:submit-end->targets-modal#close", turbo_frame: "_top" }) do |form| %>
+  <%= form_with(model: target, class: "row g-3 align-items-center", data: { action: "turbo:submit-end->targets-modal#close", turbo_frame: "_top" }) do |form| %>
     <% if target.errors.any? %>
       <div style="color: red">
         <h2><%= t 'errors.template.body' %></h2>
@@ -12,16 +13,20 @@
       </div>
     <% end %>
 
-    <div>
-      <%= form.label :total, style: "display: block" %>
-      <%= form.number_field :total, min: 1 %>
+    <div class="col-auto fs-4">
+      <%= form.label :total, style: "display: block", class: "col-form-label" %>
     </div>
+    <div class="col-auto fs-4">
+      <%= form.number_field :total, min: 1, class: "form-control text-center"%>
+    </div>
+    <div class="text-danger"><i class="bi bi-exclamation-triangle"></i>一度決めた目標は変更できません。</div>
 
-    <div>
+    <div class="text-end">
       <%= form.hidden_field :year, value: Time.current.year %>
       <%= form.hidden_field :month, value: Time.current.month %>
       <%= form.hidden_field :user_id, value: current_user.id %>
-      <%= form.submit %>
+      <%= form.submit class: "bi bi-pencil btn btn-outline-success col-4 text-wrap" %>
     </div>
   <% end %>
 <% end %>
+</div>
