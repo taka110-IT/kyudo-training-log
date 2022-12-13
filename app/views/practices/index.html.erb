@@ -29,21 +29,21 @@
   <% end %>
 </div>
 
-<%= turbo_frame_tag 'practices-list' do %>
-  <%= render 'tabs' %>
+<div class="container-fluid col-8">
+  <%= turbo_frame_tag 'practices-list' do %>
 
-  <%= paginate @practices %>
+    <%= render 'tabs' %>
 
-  <div id="practices">
-    <% @practices.each do |practice| %>
-      <% practice.shooting_count ||= 0 %>
-      <%= render practice %>
-      <p>
-        <%= link_to t('views.common.edit'), edit_practice_path(practice), data: { turbo_frame: "_top" } %>
-      </p>
-      <hr>
-    <% end %>
-  </div>
+    <div id="practices">
+      <% @practices.each do |practice| %>
+        <div>
+          <%= render practice %>
+        </div>
+      <% end %>
+    </div>
 
-  <%= paginate @practices %>
-<% end %>
+    <div class="my-4">
+      <%= paginate @practices %>
+    </div>
+  <% end %>
+</div>
