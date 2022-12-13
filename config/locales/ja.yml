@@ -220,6 +220,8 @@ ja:
     tab:
       all: 全てのメモ
       important: 大切なメモ
+    targets:
+      notice: 一度決めた目標は変更できません。
   controllers:
     practices:
       create: 記録を保存しました。

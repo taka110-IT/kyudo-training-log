@@ -254,6 +254,8 @@ en:
     tab:
       all: All Memos
       important: Important Memos
+    targets:
+      notice: Once a Target is set, it cannot be changed.
   controllers:
     practices:
       create: "Practice was successfully created."
