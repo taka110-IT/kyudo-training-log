@@ -184,8 +184,12 @@ ja:
     next: ">>"
   views:
     achievement:
-      title: 目標を達成しました！
-      message: おめでとうございます！着実に成長していますよ！
+      title: 🎉目標を達成しました🎉
+      message1: おめでとうございます！
+      message2: |
+        継続は力なり！目標を超えて
+        どこまでいけるか試してみましょう！
+      close: 閉じる
     common:
       back: 戻る
       destroy: 削除する

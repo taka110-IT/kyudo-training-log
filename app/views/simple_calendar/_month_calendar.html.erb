@@ -35,7 +35,7 @@
       <% if @target_data.blank? %>
         <span class="text-success"><%= t 'views.index.no_target' %></span>
       <% elsif @remaining_shots <= 0 %>
-        <span class="text-danger bi bi-award"><%= t 'views.achievement.title' %></span>
+        <span class="text-danger"><%= t 'views.achievement.title' %></span>
       <% else %>
         <span><%= t('views.index.remaining_shots', count: @remaining_shots ) %></span>
       <% end %>

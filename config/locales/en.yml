@@ -221,7 +221,9 @@ en:
   views:
     achievement:
       title: Target achieved!
-      message: Congratulations! The more you practice, the better you’ll become!
+      message1: Congratulations!
+      message2: You did a great job!
+      close: Close
     common:
       back: Back
       destroy: Destroy
