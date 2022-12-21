@@ -206,6 +206,7 @@ ja:
       shooting_counts: "%{count}射"
       target: 目標
       target_input: "%{year}年%{month}月の目標を入力"
+      target_edit: "目標を修正"
     new:
       title: 練習記録を入力
     pagination:
@@ -220,8 +221,6 @@ ja:
     tab:
       all: 全てのメモ
       important: 大切なメモ
-    targets:
-      notice: 一度決めた目標は変更できません。
   controllers:
     practices:
       create: 記録を保存しました。

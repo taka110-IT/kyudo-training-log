@@ -240,6 +240,7 @@ en:
       shooting_counts: "%{count}shots"
       target: Target
       target_input: "Target inputs for %{year}-%{month}"
+      target_edit: "Target edits"
     new:
       title: Input Practice
     pagination:
@@ -254,8 +255,6 @@ en:
     tab:
       all: All Memos
       important: Important Memos
-    targets:
-      notice: Once a Target is set, it cannot be changed.
   controllers:
     practices:
       create: "Practice was successfully created."
