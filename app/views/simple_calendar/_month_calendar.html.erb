@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    <p class="fs-5">
+    <div class="fs-5">
       <% if @target_data.blank? %>
         <span class="text-success"><%= t 'views.index.no_target' %></span>
       <% elsif @remaining_shots <= 0 %>
@@ -39,7 +39,21 @@
       <% else %>
         <span><%= t('views.index.remaining_shots', count: @remaining_shots ) %></span>
       <% end %>
-    </p>
+    </div>
+
+    <%= turbo_frame_tag 'targets_input' do %>
+      <div class="mb-3">
+        <% if @target_data.blank? %>
+          <%= link_to t('views.index.target_input', year: start_date.year, month: start_date.month), new_target_path(year: start_date.year, month: start_date.month), data: { turbo_frame: "targets_modal" }, class: "btn btn-outline-success btn-sm" %>
+        <% else %>
+          <%= link_to t('views.index.target_edit'), edit_target_path(@target_data.first[:id]), data: { turbo_frame: "targets_modal" }, class: "btn btn-outline-success btn-sm" %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="mb-3">
+      <%= link_to t('views.new.title'), new_practice_path, data: { turbo_frame: "_top" }, class: "bi bi-pencil btn btn-success btn-lg col-4" %>
+    </div>
 
     <%= turbo_frame_tag 'achievement_message' do %>
       <% if !@target_data.blank? && (@remaining_shots <= 0) && (@target_data.first[:achievement] == false) %>

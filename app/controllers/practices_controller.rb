@@ -11,6 +11,7 @@ class PracticesController < ApplicationController
       target(start_date)
       result(start_date)
       set_remaining_to_target
+      cancel_target_achievement
     else
       render template: 'welcome/index'
     end

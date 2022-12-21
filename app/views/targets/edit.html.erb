@@ -1,0 +1,5 @@
+<%= render "targets_modal" do %>
+  <%= turbo_frame_tag "targets_input" do %>
+    <%= render 'form', target: @target %>
+  <% end %>
+<% end %>

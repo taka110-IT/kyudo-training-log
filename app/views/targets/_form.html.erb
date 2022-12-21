@@ -13,17 +13,16 @@
         </div>
       <% end %>
 
-      <div class="col-auto fs-4">
-        <%= form.label :total, style: "display: block", class: "col-form-label" %>
+      <div class="col-auto">
+        <%= form.label :total, style: "display: block", class: "col-form-label fs-4" %>
       </div>
-      <div class="col-auto fs-4">
-        <%= form.number_field :total, min: 1, class: "form-control text-center"%>
+      <div class="col-auto">
+        <%= form.number_field :total, min: 1, class: "form-control text-center fs-4"%>
       </div>
-      <div class="text-danger"><i class="bi bi-exclamation-triangle"></i><%= t 'views.targets.notice' %></div>
 
       <div class="text-end">
-        <%= form.hidden_field :year, value: Time.current.year %>
-        <%= form.hidden_field :month, value: Time.current.month %>
+        <%= form.hidden_field :year, value: @target.year %>
+        <%= form.hidden_field :month, value: @target.month %>
         <%= form.hidden_field :user_id, value: current_user.id %>
         <%= form.submit class: "bi bi-pencil btn btn-outline-success col-4 text-wrap" %>
       </div>

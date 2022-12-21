@@ -1,6 +1,12 @@
 class TargetsController < ApplicationController
   def new
-    @target = Target.new
+    target_year = params[:year]
+    target_month = params[:month]
+    @target = Target.new(year: target_year, month: target_month)
+  end
+
+  def edit
+    @target = Target.find_by(id: params[:id])
   end
 
   def create
