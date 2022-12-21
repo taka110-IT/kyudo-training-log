@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
   <head>
     <title><%= t 'layouts.application.title' %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,18 +11,18 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column h-100">
     <header>
       <%= render "layouts/navbar" %>
       <%= render "layouts/flash" %>
     </header>
-    <main>
+    <main class="flex-grow-1">
     <%= yield %>
     <%= turbo_frame_tag "practices_modal" %>
     <%= turbo_frame_tag "targets_modal" %>
     <%= turbo_frame_tag "achievement_message_modal" %>
     </main>
-    <footer class="container-fluid py-2 mt-3 bg-light">
+    <footer class="footer py-3 bg-light">
       <ul class="nav justify-content-center my-2">
         <li class="nav-item px-2 text-muted">使い方</li>
         <li class="nav-item px-2 text-muted">利用規約</li>

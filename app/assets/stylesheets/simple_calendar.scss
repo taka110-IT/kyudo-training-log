@@ -4,6 +4,10 @@
     color: #ff505c;
   }
 
+  th:nth-of-type(n+2):nth-of-type(-n+6) {
+    background: #e6e6e6;
+  }
+
   th:nth-child(7) {
     background: #d4ebff;
     color: #5984dc;

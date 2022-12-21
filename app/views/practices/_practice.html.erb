@@ -1,12 +1,15 @@
 <div id="<%= dom_id practice %>" class="lh-lg my-2">
-  <div class="row">
-    <span class="col-4 fs-5"><%= l(practice.date, format: :long) %></span>
-    <span class="col-2 fs-5"><%= practice_shooting_count_blank?(practice) %></span>
-    <span class="col-2 fs-4"><%= practice_fixed?(practice) %> <%= practice_important?(practice) %></span>
-    <span class="col-1 ms-auto text-nowrap"><%= link_to t('views.common.edit'), edit_practice_path(practice), data: { turbo_frame: "_top" } %></span>
+  <div class="row lh-sm">
+    <span class="col-md-4 fs-6 text-nowrap"><%= l(practice.date, format: :long) %></span>
+    <span class="col-md-2 fs-6 text-nowrap"><%= practice_shooting_count_blank?(practice) %></span>
+    <span class="col-md-1 fs-5 text-nowrap"><%= practice_fixed?(practice) %> <%= practice_important?(practice) %></span>
   </div>
 
-  <div class="fs-6 border-bottom border-dark border-opacity-25 pb-2 px-3 text-break">
+  <div class="fs-6 text-break">
     <%= practice_memo_blank?(practice) %>
+  </div>
+
+  <div class="text-end border-bottom border-dark border-opacity-25 pb-2 px-3">
+    <%= link_to t('views.common.edit'), edit_practice_path(practice), data: { turbo_frame: "_top" }, class: "btn btn-outline-success btn-sm" %>
   </div>
 </div>
