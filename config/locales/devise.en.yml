@@ -99,6 +99,7 @@ en:
         sign_in: "Sign in"
         sign_in_with_provider: "Sign in with %{provider}"
         sign_up: "Sign up"
+        when_you_cant_log_in: "When you can't log in"
       minimum_password_length: "（%{count}字以上) minimum password length"
     unlocks:
       new:

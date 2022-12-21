@@ -1,12 +1,53 @@
-<div>
-  <h2>弓道練習記録帳とは</h2>
-  <p>
-    弓道練習記録帳は、弓道の練習記録をつけるのをついつい忘れてしまう人のための記録管理・集計アプリです。
-    スマートフォンやPCで手軽に練習記録の入力をしたり、過去の練習メモや月間の練習量の確認ができます。
-    紙のノートでの練習記録とは違って、スマートフォンでどこでも練習記録が残せ、いつでも振り返る事ができるのが特徴です。
-    また、このアプリは的中率は記録せず、今月どれだけ練習したかの「実績」と、月初めに立てた「目標」だけを表示します。
-    的中率にこだわらず練習量だけに注目する事で、的中率が低い時の練習へのモチベーション低下を防いだり、
-    的前に立つ前段階の人の基礎練習へのモチベーションを上げる効果が期待できます。
-    メールアドレス登録のみで無料で利用できます。
-  </p>
+<div class="container-fluid col-8">
+  <div class="justify-content-center">
+    <h1 class="fs-2 welcome-header">弓道練習記録帳とは</h1>
+    <p class="fs-6 mb-4">
+      弓道練習記録帳は、弓道の練習記録をつけるのをついつい忘れてしまう人のための記録管理・集計アプリです。
+      スマートフォンやPCで手軽に練習記録の入力をしたり、過去の練習メモや月間の練習量の確認ができます。
+    </p>
+
+    <h2 class="fs-4 welcome-header">
+      <i class="bi bi-emoji-dizzy text-danger"></i>こんなこと、ありませんか？
+    </h2>
+
+    <ul class="fs-5 list-unstyled lh-lg ms-4">
+      <li class="indent"><span><i class="bi bi-exclamation-circle mx-2 text-danger"></i>練習で気付いたことをメモするのを忘れた</span></li>
+      <li class="indent"><span><i class="bi bi-exclamation-circle mx-2 text-danger"></i>新しい記録ノートになって、あの時のメモが見返せない</span></li>
+      <li class="indent"><span><i class="bi bi-exclamation-circle mx-2 text-danger"></i>的中率が低迷しているので練習のモチベーションが下がりがち</span></li>
+      <li class="indent"><span><i class="bi bi-exclamation-circle mx-2 text-danger"></i>なかなか道場に行けないけど少しでも練習は続けたい…</span></li>
+      <li class="indent"><span><i class="bi bi-exclamation-circle mx-2 text-danger"></i>まだ的前には立てないけど、教わったことは残しておきたい</span></li>
+    </ul>
+
+    <h2 class="fs-4 welcome-header">
+      <i class="bi bi-emoji-smile text-primary"></i>このアプリがあなたをサポートします！
+    </h2>
+
+    <div class="ms-4 fs-5 indent">
+      <p><i class="bi bi-check-circle mx-2 text-success"></i>スマートフォンでどこでも手軽に射数やメモを記録できます。</p>
+      <p class="fy-2"><%= image_tag('image.png', alt: 'image', size: '200x200') %></p>
+    </div>
+
+    <div class="ms-4 fs-5 indent">
+      <p><i class="bi bi-check-circle mx-2 text-success"></i>大事なメモだけ表示したり、いつも目に入るように最初に表示したりも可能です。</p>
+      <p class="fy-2"><%= image_tag('image.png', alt: 'image', size: '200x200') %></p>
+    </div>
+
+    <div class="ms-4 fs-5 indent">
+      <p><i class="bi bi-check-circle mx-2 text-success"></i>あえて的中数は記録しないようにしました。射数のみを記録するので、的前だけでなく巻藁やゴム弓、徒手も射数に入れて、練習の積み重ねを実感しましょう。</p>
+      <p class="fy-2"><%= image_tag('image.png', alt: 'image', size: '200x200') %></p>
+    </div>
+
+    <div class="ms-4 fs-5 indent">
+      <p><i class="bi bi-check-circle mx-2 text-success"></i>月の初めに、今月の目標射数を入力しましょう。少しづつ練習を積み重ねて目標を超えていきましょう。</p>
+      <p class="fy-2"><%= image_tag('image.png', alt: 'image', size: '200x200') %></p>
+    </div>
+
+    <h2 class="my-4 fs-5 lh-lg text-center">
+      メールアドレス登録だけで<span class="text-danger">無料</span>で利用できます。<br>
+      このアプリで<span class="text-danger fs-4">「継続は力なり」</span>を実感しましょう！
+    </h2>
+  </div>
+  <div class="text-center">
+    <%= link_to t('devise.shared.links.sign_up'), new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+  </div>
 </div>

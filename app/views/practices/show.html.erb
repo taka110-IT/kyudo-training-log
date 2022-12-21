@@ -1,23 +1,17 @@
 <%= turbo_frame_tag @practice do %>
   <%= render "practices_modal" do %>
 
-    <p>
-      <%= @practice.important == true ? t('activerecord.attributes.practice.important') : '' %>
-      <%= @practice.fixed == true ? t('activerecord.attributes.practice.fixed') : '' %>
-    </p>
+    <div class="row">
+      <span class="col-2 fs-5"><%= practice_shooting_count_blank?(@practice) %></span>
+      <span class="col-2 fs-4"><%= practice_fixed?(@practice) %> <%= practice_important?(@practice) %></span>
+    </div>
 
-    <p>
-      <%= @practice.shooting_count.blank? ?
-            t('views.index.shooting_counts', count: 0)
-          : t('views.index.shooting_counts', count: @practice.shooting_count) %>
-    </p>
+    <div class="fs-5 px-3 text-break">
+      <%= practice_memo_blank?(@practice) %>
+    </div>
 
-    <p>
-      <%= @practice.memo.blank? ? t('views.show.no_memos') : @practice.memo %>
-    </p>
-
-    <div>
-      <%= link_to t('views.common.edit'), edit_practice_path(@practice), data: { turbo_frame: "_top" } %>
+    <div class="pt-3 text-end">
+      <%= link_to t('views.common.edit'), edit_practice_path(@practice), data: { turbo_frame: "_top" }, class: "btn btn-outline-success btn-sm" %>
     </div>
   <% end %>
 <% end %>

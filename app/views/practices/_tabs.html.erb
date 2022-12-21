@@ -1,9 +1,9 @@
-<ul>
-  <li>
-    <%= link_to t('views.tab.all'), practices_path(memos: 'all') %>
+<ul class="nav nav-tabs">
+  <li class="nav-item" data-bs-toggle="tab" >
+    <%= link_to t('views.tab.all'), practices_path(memos: 'all'), class: "nav-link #{current_page_tab_or_not('all')}" %>
   </li>
 
-  <li>
-    <%= link_to t('views.tab.important'), practices_path(memos: 'important') %>
+  <li class="nav-item" data-bs-toggle="tab">
+    <%= link_to t('views.tab.important'), practices_path(memos: 'important'), class: "nav-link #{current_page_tab_or_not('important')}" %>
   </li>
 </ul>

@@ -1,0 +1,16 @@
+.welcome-header {
+  position: relative;
+  padding: 0.25em 0;
+}
+
+.welcome-header:after {
+  content: "";
+  display: block;
+  height: 4px;
+  background: -webkit-linear-gradient(to right, rgb(143, 45, 86), transparent);
+  background: linear-gradient(to right, rgb(143, 45, 86), transparent);
+}
+
+.indent {
+  text-indent: -0.9em;
+}

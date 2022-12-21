@@ -221,7 +221,9 @@ en:
   views:
     achievement:
       title: Target achieved!
-      message: Congratulations! The more you practice, the better you’ll become!
+      message1: Congratulations!
+      message2: You did a great job!
+      close: Close
     common:
       back: Back
       destroy: Destroy
@@ -234,9 +236,9 @@ en:
     index:
       no_target: Targets not input.
       remaining_shots: "Remained:%{count}shots"
-      result: Result：
+      result: Result
       shooting_counts: "%{count}shots"
-      target: Target：
+      target: Target
       target_input: "Target inputs for %{year}-%{month}"
     new:
       title: Input Practice
@@ -252,6 +254,8 @@ en:
     tab:
       all: All Memos
       important: Important Memos
+    targets:
+      notice: Once a Target is set, it cannot be changed.
   controllers:
     practices:
       create: "Practice was successfully created."

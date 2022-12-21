@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
   <head>
     <title><%= t 'layouts.application.title' %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,27 +11,24 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column h-100">
     <header>
-      <nav>
-        <div><h1><%= t 'layouts.application.title' %></h1></div>
-        <p class="navbar-text pull-right">
-          <% if user_signed_in? %>
-            <%= t 'layouts.application.logged_in_as' %><strong><%= current_user.email %></strong>
-            <%= link_to t('layouts.application.edit_profile'), edit_user_registration_path, class: 'navbar-link' %>
-            <%= link_to t('layouts.application.logout'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'navbar-link' %>
-          <% else %>
-            <%= link_to t('devise.shared.links.sign_up'), new_user_registration_path, class: 'navbar-link'  %>
-            <%= link_to t('devise.shared.links.sign_in'), new_user_session_path, class: 'navbar-link'  %>
-          <% end %>
-        </p>
-      </nav>
+      <%= render "layouts/navbar" %>
+      <%= render "layouts/flash" %>
     </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <main class="flex-grow-1">
     <%= yield %>
     <%= turbo_frame_tag "practices_modal" %>
     <%= turbo_frame_tag "targets_modal" %>
     <%= turbo_frame_tag "achievement_message_modal" %>
+    </main>
+    <footer class="footer py-3 bg-light">
+      <ul class="nav justify-content-center my-2">
+        <li class="nav-item px-2 text-muted">使い方</li>
+        <li class="nav-item px-2 text-muted">利用規約</li>
+        <li class="nav-item px-2 text-muted">プライバシーポリシー</li>
+      </ul>
+      <p class="text-center text-muted mb-0">&copy; 2022 taka110-IT</p>
+    </footer>
   </body>
 </html>

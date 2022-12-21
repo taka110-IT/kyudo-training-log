@@ -184,8 +184,12 @@ ja:
     next: ">>"
   views:
     achievement:
-      title: 目標を達成しました！
-      message: おめでとうございます！着実に成長していますよ！
+      title: 🎉目標を達成しました🎉
+      message1: おめでとうございます！
+      message2: |
+        継続は力なり！目標を超えて
+        どこまでいけるか試してみましょう！
+      close: 閉じる
     common:
       back: 戻る
       destroy: 削除する
@@ -197,10 +201,10 @@ ja:
       important: ⭐️大切な記録
     index:
       no_target: 目標射数が入力されていません
-      remaining_shots: "残り%{count}射"
-      result: 計：
+      remaining_shots: "目標達成まで　%{count}射"
+      result: 現在
       shooting_counts: "%{count}射"
-      target: 目標：
+      target: 目標
       target_input: "%{year}年%{month}月の目標を入力"
     new:
       title: 練習記録を入力
@@ -216,6 +220,8 @@ ja:
     tab:
       all: 全てのメモ
       important: 大切なメモ
+    targets:
+      notice: 一度決めた目標は変更できません。
   controllers:
     practices:
       create: 記録を保存しました。
