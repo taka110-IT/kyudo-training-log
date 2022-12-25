@@ -261,4 +261,5 @@ en:
       destroy: "Practice was successfully updated."
       update: "Practice was successfully destroyed."
     targets:
-      create: "Targets set for this month."
+      create: "Targets created."
+      update: "Targets updated."

@@ -11,10 +11,11 @@ class TargetsController < ApplicationController
 
   def create
     @target = Target.new(target_params)
+    start_date = set_date
 
     respond_to do |format|
       if @target.save
-        format.html { redirect_to root_path, notice: t('controllers.targets.create') }
+        format.html { redirect_to root_path('start_date': start_date), notice: t('controllers.targets.create') }
         format.json { render :show, status: :created, location: @target }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -25,10 +26,11 @@ class TargetsController < ApplicationController
 
   def update
     @target = Target.find_by(id: params[:id])
+    start_date = set_date
 
     respond_to do |format|
       if @target.update(target_params)
-        format.html { redirect_to root_path }
+        format.html { redirect_to root_path('start_date': start_date), notice: t('controllers.targets.update') }
         format.json { render :show, status: :ok, location: @target }
       else
         format.html { redirect_to root_path, status: :unprocessable_entity }
@@ -38,6 +40,10 @@ class TargetsController < ApplicationController
   end
 
   private
+
+  def set_date
+    [@target[:year], @target[:month], 1].join('-')
+  end
 
   def target_params
     params.require(:target).permit(:total, :year, :month, :user_id, :achievement)
