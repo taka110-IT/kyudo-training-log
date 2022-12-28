@@ -11,6 +11,7 @@
 
       <div class="text-center">
         <%= form.hidden_field :achievement, value: true %>
+        <%= form.hidden_field 'notice', value: 'achievement' %>
         <%= form.hidden_field :user_id, value: current_user.id %>
         <%= form.submit t('views.achievement.close'), class: "btn btn-outline-danger text-wrap"%>
       </div>

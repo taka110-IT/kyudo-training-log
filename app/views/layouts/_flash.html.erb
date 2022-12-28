@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-">
       <% flash.each do |name, message| %>
+        <% break if message == 'achievement' %>
         <div class="alert alert-<%= name == 'notice' ? 'success' : 'warning' %> alert-dismissible fade show" role="alert">
           <%= message %>
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
