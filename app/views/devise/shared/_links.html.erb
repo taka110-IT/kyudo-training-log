@@ -2,7 +2,7 @@
   <button type="button" class="col-3 btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
     <%= t 'devise.shared.links.when_you_cant_log_in' %>
   </button>
-  <ul class="dropdown-menu col-5 float-end">
+  <ul class="dropdown-menu col-6 float-end">
     <li>
       <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
         <%= link_to t('devise.shared.links.forgot_your_password'), new_password_path(resource_name), class: "dropdown-item" %>
