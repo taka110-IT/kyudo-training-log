@@ -27,10 +27,11 @@ class TargetsController < ApplicationController
   def update
     @target = Target.find_by(id: params[:id])
     start_date = set_date
+    notice_message = params[:target][:notice] == 'achievement' ? 'achievement' : t('controllers.targets.update')
 
     respond_to do |format|
       if @target.update(target_params)
-        format.html { redirect_to root_path('start_date': start_date), notice: t('controllers.targets.update') }
+        format.html { redirect_to root_path('start_date': start_date), notice: notice_message }
         format.json { render :show, status: :ok, location: @target }
       else
         format.html { redirect_to root_path, status: :unprocessable_entity }
