@@ -262,4 +262,6 @@ en:
       update: "Practice was successfully destroyed."
     targets:
       create: "Targets created."
+      create_error: "Could not created. Target must be entered above the number 1."
       update: "Targets updated."
+      update_error: "Could not updated. Target must be entered above the number 1."
