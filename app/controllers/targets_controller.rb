@@ -15,10 +15,10 @@ class TargetsController < ApplicationController
 
     respond_to do |format|
       if @target.save
-        format.html { redirect_to root_path('start_date': start_date), notice: t('controllers.targets.create') }
+        format.html { redirect_to root_path(start_date:), notice: t('controllers.targets.create') }
         format.json { render :show, status: :created, location: @target }
       else
-        format.html { redirect_to root_path('start_date': start_date), status: :unprocessable_entity, alert: t('controllers.targets.create_error') }
+        format.html { redirect_to root_path(start_date:), status: :unprocessable_entity, alert: t('controllers.targets.create_error') }
         format.json { render json: @target.errors, status: :unprocessable_entity }
       end
     end
@@ -31,10 +31,10 @@ class TargetsController < ApplicationController
 
     respond_to do |format|
       if @target.update(target_params)
-        format.html { redirect_to root_path('start_date': start_date), notice: notice_message }
+        format.html { redirect_to root_path(start_date:), notice: notice_message }
         format.json { render :show, status: :ok, location: @target }
       else
-        format.html { redirect_to root_path('start_date': start_date), status: :unprocessable_entity, alert: t('controllers.targets.update_error') }
+        format.html { redirect_to root_path(start_date:), status: :unprocessable_entity, alert: t('controllers.targets.update_error') }
         format.json { render json: @target.errors, status: :unprocessable_entity }
       end
     end
