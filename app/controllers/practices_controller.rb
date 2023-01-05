@@ -27,10 +27,11 @@ class PracticesController < ApplicationController
 
   def create
     @practice = Practice.new(practice_params)
+    start_date = set_date
 
     respond_to do |format|
       if @practice.save
-        format.html { redirect_to practices_path, notice: t('controllers.practices.create') }
+        format.html { redirect_to root_path(start_date:), notice: t('controllers.practices.create') }
         format.json { render :show, status: :created, location: @practice }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,13 +41,14 @@ class PracticesController < ApplicationController
   end
 
   def update
+    start_date = set_date
     respond_to do |format|
       if @practice.update(practice_params)
         target(@practice.date)
         result(@practice.date)
         set_remaining_to_target
         cancel_target_achievement
-        format.html { redirect_to practices_path, notice: t('controllers.practices.update') }
+        format.html { redirect_to root_path(start_date:), notice: t('controllers.practices.update') }
         format.json { render :show, status: :ok, location: @practice }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,13 +59,14 @@ class PracticesController < ApplicationController
 
   def destroy
     @practice.destroy
+    start_date = set_date
 
     respond_to do |format|
       target(@practice.date)
       result(@practice.date)
       set_remaining_to_target
       cancel_target_achievement
-      format.html { redirect_to practices_url, notice: t('controllers.practices.destroy'), status: :see_other }
+      format.html { redirect_to root_path(start_date:), notice: t('controllers.practices.destroy'), status: :see_other }
       format.json { head :no_content }
     end
   end
@@ -92,6 +95,10 @@ class PracticesController < ApplicationController
     return if @target_data.blank? || !(@remaining_shots.positive? && (@target_data.first[:achievement] == true))
 
     @target_data.first.update(achievement: false)
+  end
+
+  def set_date
+    [@practice.date.year, @practice.date.mon, @practice.date.day].join('-')
   end
 
   def practice_params
