@@ -1,17 +1,17 @@
 class TargetsController < ApplicationController
+  before_action :set_target, only: %i[edit update]
+
   def new
     target_year = params[:year]
     target_month = params[:month]
     @target = Target.new(year: target_year, month: target_month)
   end
 
-  def edit
-    @target = Target.find_by(id: params[:id])
-  end
+  def edit; end
 
   def create
     @target = Target.new(target_params)
-    start_date = set_date
+    start_date = Target.display_start_date(@target)
 
     respond_to do |format|
       if @target.save
@@ -25,9 +25,8 @@ class TargetsController < ApplicationController
   end
 
   def update
-    @target = Target.find_by(id: params[:id])
-    start_date = set_date
-    notice_message = params[:target][:notice] == 'achievement' ? 'achievement' : t('controllers.targets.update')
+    start_date = Target.display_start_date(@target)
+    notice_message = Target.display_notice_message(params[:target][:notice])
 
     respond_to do |format|
       if @target.update(target_params)
@@ -42,8 +41,8 @@ class TargetsController < ApplicationController
 
   private
 
-  def set_date
-    [@target[:year], @target[:month], 1].join('-')
+  def set_target
+    @target = Target.find_by(id: params[:id])
   end
 
   def target_params
