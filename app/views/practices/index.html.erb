@@ -21,7 +21,7 @@
     <%= render 'tabs' %>
 
     <div id="practices">
-      <% @practices.each do |practice| %>
+      <% @user_practices.each do |practice| %>
         <div>
           <%= render practice %>
         </div>
@@ -29,7 +29,7 @@
     </div>
 
     <div class="my-4">
-      <%= paginate @practices %>
+      <%= paginate @user_practices %>
     </div>
   <% end %>
 </div>
