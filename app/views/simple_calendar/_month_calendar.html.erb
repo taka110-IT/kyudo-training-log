@@ -21,9 +21,9 @@
             <span class="fs-5 me-3"><%= t 'views.index.result' %></span>
             <span class="fs-3">
               <% if @target_data.blank? || @remaining_shots.positive? %>
-                <span><%= t('views.index.shooting_counts', count: @result) %></span>
+                <span><%= t('views.index.shooting_counts', count: @results) %></span>
               <% else %>
-               <span class="text-danger"><%= t('views.index.shooting_counts', count: @result)  %></span>
+               <span class="text-danger"><%= t('views.index.shooting_counts', count: @results)  %></span>
               <% end %>
             </span>
           </li>

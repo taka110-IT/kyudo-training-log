@@ -4,14 +4,14 @@ class PracticesController < ApplicationController
 
   def index
     if user_signed_in?
-      practices = params[:memos] == 'important' ? Practice.where(important: true) : Practice.all
-      @practices = practices.where(user_id: current_user.id).order(fixed: :desc, date: :desc).page(params[:page]).per(10)
+      practices = Practice.practices_tab_contents(params[:memos])
+      @user_practices = Practice.setting_user_practices(practices, current_user.id).page(params[:page]).per(10)
       @calendar_displayed_practices = Practice.where(user_id: current_user.id)
       start_date = params.fetch(:start_date, Time.zone.today).to_date
-      target(start_date)
-      result(start_date)
-      set_remaining_to_target
-      cancel_target_achievement
+      @target_data = Target.setting_target(start_date, current_user.id)
+      @results = Practice.setting_results(start_date, current_user.id)
+      @remaining_shots = Practice.remaining_to_target(@target_data, @results) if @target_data.present?
+      Target.cancel_target_achievement(@target_data, @remaining_shots)
     else
       render template: 'welcome/index'
     end
@@ -27,7 +27,7 @@ class PracticesController < ApplicationController
 
   def create
     @practice = Practice.new(practice_params)
-    start_date = set_date
+    start_date = Practice.display_start_date(@practice)
 
     respond_to do |format|
       if @practice.save
@@ -41,13 +41,9 @@ class PracticesController < ApplicationController
   end
 
   def update
-    start_date = set_date
+    start_date = Practice.display_start_date(@practice)
     respond_to do |format|
       if @practice.update(practice_params)
-        target(@practice.date)
-        result(@practice.date)
-        set_remaining_to_target
-        cancel_target_achievement
         format.html { redirect_to root_path(start_date:), notice: t('controllers.practices.update') }
         format.json { render :show, status: :ok, location: @practice }
       else
@@ -59,13 +55,9 @@ class PracticesController < ApplicationController
 
   def destroy
     @practice.destroy
-    start_date = set_date
+    start_date = Practice.display_start_date(@practice)
 
     respond_to do |format|
-      target(@practice.date)
-      result(@practice.date)
-      set_remaining_to_target
-      cancel_target_achievement
       format.html { redirect_to root_path(start_date:), notice: t('controllers.practices.destroy'), status: :see_other }
       format.json { head :no_content }
     end
@@ -75,30 +67,6 @@ class PracticesController < ApplicationController
 
   def set_practice
     @practice = Practice.find(params[:id])
-  end
-
-  def target(start_date)
-    @target_data = Target.where(year: start_date.year, month: start_date.month, user_id: current_user.id)
-  end
-
-  def result(start_date)
-    @result = Practice.where(date: start_date.in_time_zone.all_month, user_id: current_user.id).sum(:shooting_count)
-  end
-
-  def set_remaining_to_target
-    return if @target_data.blank?
-
-    @remaining_shots = @target_data.first[:total] - @result
-  end
-
-  def cancel_target_achievement
-    return if @target_data.blank? || !(@remaining_shots.positive? && (@target_data.first[:achievement] == true))
-
-    @target_data.first.update(achievement: false)
-  end
-
-  def set_date
-    [@practice.date.year, @practice.date.mon, @practice.date.day].join('-')
   end
 
   def practice_params

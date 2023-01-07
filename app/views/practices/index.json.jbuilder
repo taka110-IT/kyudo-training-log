@@ -1,1 +1,1 @@
-json.array! @practices, partial: "practices/practice", as: :practice
+json.array! @user_practices, partial: "practices/practice", as: :practice
