@@ -41,9 +41,9 @@ class PracticesController < ApplicationController
   end
 
   def update
-    start_date = Practice.display_start_date(@practice)
     respond_to do |format|
       if @practice.update(practice_params)
+        start_date = Practice.display_start_date(@practice)
         format.html { redirect_to root_path(start_date:), notice: t('controllers.practices.update') }
         format.json { render :show, status: :ok, location: @practice }
       else
