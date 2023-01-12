@@ -4,7 +4,7 @@
   <%= render "form", practice: @practice %>
 
   <div class="text-center mb-3">
-    <%= link_to t('views.common.destroy'), @practice, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？", turbo_frame: "_top" }, class: "btn btn-outline-danger col-3 text-wrap" %>
+    <%= link_to t('views.common.destroy'), @practice, data: { turbo_method: :delete, turbo_confirm: t('views.edit.are_you_sure'), turbo_frame: "_top" }, class: "btn btn-outline-danger col-3 text-wrap" %>
   </div>
 
   <div class="text-center mb-3">

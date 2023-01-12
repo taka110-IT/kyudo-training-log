@@ -230,6 +230,7 @@ en:
       edit: Edit
     edit:
       title: Edit Practice
+      are_you_sure: "Are you sure?"
     form:
       fixed: 📌Fixed
       important: ⭐️Important
