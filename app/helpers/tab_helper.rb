@@ -6,8 +6,8 @@ module TabHelper
   private
 
   def current_page_tab?(target_name)
-    paths = request.url.split('=')
-    paths.push('all') unless paths.include?('all') || paths.include?('important')
-    paths[-1] == target_name
+    paths = request.url.split(/[=?&]/)
+    active_tab = paths.include?('important') ? 'important' : 'all'
+    active_tab == target_name
   end
 end
