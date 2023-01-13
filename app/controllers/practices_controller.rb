@@ -32,10 +32,8 @@ class PracticesController < ApplicationController
     respond_to do |format|
       if @practice.save
         format.html { redirect_to root_path(start_date:), notice: t('controllers.practices.create') }
-        format.json { render :show, status: :created, location: @practice }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @practice.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -45,10 +43,8 @@ class PracticesController < ApplicationController
       if @practice.update(practice_params)
         start_date = Practice.display_start_date(@practice)
         format.html { redirect_to root_path(start_date:), notice: t('controllers.practices.update') }
-        format.json { render :show, status: :ok, location: @practice }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @practice.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -59,7 +55,6 @@ class PracticesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to root_path(start_date:), notice: t('controllers.practices.destroy'), status: :see_other }
-      format.json { head :no_content }
     end
   end
 
