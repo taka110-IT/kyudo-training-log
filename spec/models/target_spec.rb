@@ -18,7 +18,7 @@ RSpec.describe Target, type: :model do
     end
 
     context 'when target updated' do
-      it 'returns updated message'do
+      it 'returns updated message' do
         expect(described_class.display_notice_message('')).to eq '目標を修正しました。'
       end
     end
@@ -33,6 +33,6 @@ RSpec.describe Target, type: :model do
     target_data = described_class.setting_target(start_date, target.user)
     target_data.first[:achievement] = true
     remaining_shots = 10
-    expect(described_class.cancel_target_achievement(target_data, remaining_shots)).to eq true
+    expect(described_class.cancel_target_achievement(target_data, remaining_shots)).to be true
   end
 end
