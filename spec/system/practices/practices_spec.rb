@@ -3,11 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Practices::Practices', js: true, type: :system do
-  let(:user) { FactoryBot.create(:user) }
+  let(:user) { create(:user) }
 
   before do
-    FactoryBot.create(:practice, user:)
-    FactoryBot.create(:target, user:)
+    create(:practice, user:)
+    create(:target, user:)
     travel_to Time.zone.local(2023, 1, 1)
     sign_in user
     visit root_path

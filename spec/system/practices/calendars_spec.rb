@@ -3,12 +3,12 @@
 require 'rails_helper'
 
 RSpec.describe 'Practices::Calendars', js: true, type: :system do
-  let(:user) { FactoryBot.create(:user) }
+  let(:user) { create(:user) }
 
   before do
-    FactoryBot.create(:practice, user:)
-    FactoryBot.create(:practice, user:, date: '2022-12-1', shooting_count: 5)
-    FactoryBot.create(:target, user:)
+    create(:practice, user:)
+    create(:practice, user:, date: '2022-12-1', shooting_count: 5)
+    create(:target, user:)
     travel_to Time.zone.local(2023, 1, 1)
     sign_in user
     visit root_path

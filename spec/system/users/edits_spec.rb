@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Users::Edits', js: true, type: :system do
-  let(:user) { FactoryBot.create(:user) }
+  let(:user) { create(:user) }
 
   before do
     sign_in user
@@ -14,7 +14,7 @@ RSpec.describe 'Users::Edits', js: true, type: :system do
     fill_in 'user[email]', with: user.email
     fill_in 'user[password]', with: user.password
     fill_in 'user[password_confirmation]', with: user.password
-    fill_in 'user[current_password]', with:user.password
+    fill_in 'user[current_password]', with: user.password
     click_button '更新'
 
     expect(page).to have_content 'アカウント情報を変更しました。'

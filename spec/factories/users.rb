@@ -4,6 +4,6 @@ FactoryBot.define do
   factory :user do
     email { 'testuser@example.com' }
     password { 'Useruser1' }
-    confirmed_at { Date.today }
+    confirmed_at { Time.zone.today }
   end
 end

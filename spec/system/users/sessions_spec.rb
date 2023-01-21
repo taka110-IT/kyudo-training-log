@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Users::Sessions', type: :system do
-  let(:user) { FactoryBot.create(:user) }
+  let(:user) { create(:user) }
 
   before do
     visit new_user_session_path

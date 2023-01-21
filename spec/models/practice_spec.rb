@@ -3,14 +3,14 @@
 require 'rails_helper'
 
 RSpec.describe Practice, type: :model do
-  let!(:practice) { FactoryBot.create(:practice) }
+  let!(:practice) { create(:practice) }
   let!(:practices) { described_class.setting_user_practices(described_class.all, practice.user) }
   let!(:start_date) { described_class.display_start_date(practice).to_date }
 
   before do
-    FactoryBot.create(:practice, :important, user: practice.user)
-    FactoryBot.create(:practice, :fixed, user: practice.user)
-    FactoryBot.create(:target, user: practice.user)
+    create(:practice, :important, user: practice.user)
+    create(:practice, :fixed, user: practice.user)
+    create(:target, user: practice.user)
   end
 
   describe 'tab contents' do

@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Target, type: :model do
-  let!(:target) { FactoryBot.create(:target) }
+  let!(:target) { create(:target) }
   let!(:start_date) { described_class.display_start_date(target).to_date }
 
   it 'is created start_date from target' do
@@ -22,7 +22,6 @@ RSpec.describe Target, type: :model do
         expect(described_class.display_notice_message('')).to eq '目標を修正しました。'
       end
     end
-
   end
 
   it 'is target set' do

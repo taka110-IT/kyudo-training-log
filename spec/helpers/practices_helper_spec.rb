@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe PracticesHelper, type: :helper do
-  let!(:practice) { FactoryBot.create(:practice) }
-  let!(:practice_important) { FactoryBot.create(:practice, :important, user: practice.user) }
-  let!(:practice_fixed) { FactoryBot.create(:practice, :fixed, user: practice.user) }
+  let!(:practice) { create(:practice) }
+  let!(:practice_important) { create(:practice, :important, user: practice.user) }
+  let!(:practice_fixed) { create(:practice, :fixed, user: practice.user) }
 
   context 'when important is true' do
     it 'is displayed ⭐️' do
@@ -33,7 +33,7 @@ RSpec.describe PracticesHelper, type: :helper do
 
   context 'when shooting_count is nil' do
     it 'is displayed 0' do
-      practice_shooting_count_is_nil = FactoryBot.build(:practice, shooting_count: nil)
+      practice_shooting_count_is_nil = build(:practice, shooting_count: nil)
       expect(helper.practice_shooting_count_blank?(practice_shooting_count_is_nil)).to eq '0射'
     end
   end
@@ -46,7 +46,7 @@ RSpec.describe PracticesHelper, type: :helper do
 
   context 'when memo is nil' do
     it 'is displayed "No Memos"' do
-      practice_memo_is_nil = FactoryBot.build(:practice, memo: nil)
+      practice_memo_is_nil = build(:practice, memo: nil)
       expect(helper.practice_memo_blank?(practice_memo_is_nil)).to eq 'メモはありません'
     end
   end

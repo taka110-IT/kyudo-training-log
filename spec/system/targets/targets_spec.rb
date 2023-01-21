@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Targets::Targets', js: true, type: :system do
-  let(:user) { FactoryBot.create(:user) }
+  let(:user) { create(:user) }
 
   before do
     travel_to Time.zone.local(2023, 1, 1)
@@ -24,7 +24,7 @@ RSpec.describe 'Targets::Targets', js: true, type: :system do
   end
 
   it 'can update target' do
-    FactoryBot.create(:target, user:)
+    create(:target, user:)
     visit root_path
 
     click_link '目標を修正'
@@ -39,7 +39,7 @@ RSpec.describe 'Targets::Targets', js: true, type: :system do
   end
 
   it 'can input target for past month' do
-    FactoryBot.create(:target, user:)
+    create(:target, user:)
     click_link '<<'
 
     click_link '2022年12月の目標を入力'
@@ -55,7 +55,7 @@ RSpec.describe 'Targets::Targets', js: true, type: :system do
   end
 
   it 'can update target for past month' do
-    FactoryBot.create(:target, user:, year: 2022, month: 12)
+    create(:target, user:, year: 2022, month: 12)
     visit root_path
     click_link '<<'
 
