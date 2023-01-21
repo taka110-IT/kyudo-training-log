@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PracticesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index]
   before_action :set_practice, only: %i[show edit update destroy]

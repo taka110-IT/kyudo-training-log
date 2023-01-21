@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TabHelper
   def current_page_tab_or_not(target_name)
     current_page_tab?(target_name) ? 'active' : ''

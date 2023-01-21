@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TargetsController < ApplicationController
   before_action :set_target, only: %i[edit update]
 
