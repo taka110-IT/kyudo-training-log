@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PracticesHelper
   def practice_important?(practice)
     practice.important == true ? '⭐️' : ''

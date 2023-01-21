@@ -3,12 +3,21 @@ require:
   - rubocop-performance
   - rubocop-rspec
 
-Style/AsciiComments:
-  Enabled: false
-
 AllCops:
   TargetRubyVersion: 3.1
   NewCops: enable
+  Exclude:
+    - '**/templates/**/*'
+    - '**/vendor/**/*'
+    - app/views/**/*
+    - config/**/*
+    - config.ru
+    - node_modules/**/*
+    - db/migrate/*
+    - db/schema.rb
+    - storage/**/*
+    - tmp/**/*
+    - bin/**/*
 
 RSpec/ExampleLength:
   Exclude:
@@ -17,3 +26,15 @@ RSpec/ExampleLength:
 RSpec/MultipleExpectations:
   Exclude:
     - spec/system/**/*
+
+Style/Documentation:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 150
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/AbcSize:
+  Max: 50
