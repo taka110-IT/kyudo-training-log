@@ -126,7 +126,7 @@ ja:
         forgot_your_password: パスワードを忘れた
         sign_in: ログイン
         sign_in_with_provider: "%{provider}でログイン"
-        sign_up: アカウント登録
+        sign_up: 利用登録
         when_you_cant_log_in: ログインできない時は
       minimum_password_length: "（%{count}字以上）"
     unlocks:
