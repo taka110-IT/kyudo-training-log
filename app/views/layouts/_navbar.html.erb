@@ -1,15 +1,22 @@
 <nav class="navbar">
-  <div class="container-fluid col-10 pb-3 border-bottom">
+  <div class="container-fluid col-10 pb-2 border-bottom">
     <div>
-      <%= link_to image_tag('title.png', alt: t('layouts.application.title')), root_path, data: { turbo_frame: "_top" } %>
+      <%= link_to image_tag('title.png', alt: t('layouts.application.title'), class: "img-fluid"), root_path, data: { turbo_frame: "_top" } %>
     </div>
-    <div class="ms-auto">
+    <div class="ms-auto btn-group">
+      <a class="btn btn-outline-success btn-sm dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        メニュー
+      </a>
     <% if user_signed_in? %>
-        <%= link_to t('layouts.application.edit_profile'), edit_user_registration_path, class: 'btn btn-outline-success btn-sm me-md-2' %>
-        <%= link_to t('layouts.application.logout'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-outline-danger btn-sm' %>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><%= link_to t('layouts.application.edit_profile'), edit_user_registration_path, class: 'dropdown-item' %></li>
+          <li><%= link_to t('layouts.application.logout'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'dropdown-item' %></li>
+        </ul>
       <% else %>
-        <%= link_to t('devise.shared.links.sign_up'), new_user_registration_path, class: 'btn btn-outline-primary btn-sm' %>
-        <%= link_to t('devise.shared.links.sign_in'), new_user_session_path, class: 'btn btn-outline-success btn-sm' %>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><%= link_to t('devise.shared.links.sign_up'), new_user_registration_path, class: 'dropdown-item' %></li>
+          <li><%= link_to t('devise.shared.links.sign_in'), new_user_session_path, class: 'dropdown-item btn btn-outline-success' %></li>
+        </ul>
       <% end %>
     </div>
   </div>
