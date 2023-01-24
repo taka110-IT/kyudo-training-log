@@ -15,7 +15,7 @@
   <% end %>
 </div>
 
-<div class="container-fluid col-8">
+<div class="container-fluid">
   <%= turbo_frame_tag 'practices-list' do %>
 
     <%= render 'tabs' %>
@@ -29,7 +29,7 @@
     </div>
 
     <div class="my-4">
-      <%= paginate @user_practices %>
+      <%= paginate @user_practices, window:1%>
     </div>
   <% end %>
 </div>

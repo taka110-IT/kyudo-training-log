@@ -1,12 +1,15 @@
 <%= turbo_frame_tag @practice do %>
   <%= render "practices_modal" do %>
 
-    <div class="row">
-      <span class="col-2 fs-5"><%= practice_shooting_count_blank?(@practice) %></span>
-      <span class="col-2 fs-4"><%= practice_fixed?(@practice) %> <%= practice_important?(@practice) %></span>
+    <div class="row lh-sm">
+      <p>
+        <%= practice_shooting_count_blank?(@practice) %>
+        <%= practice_fixed?(@practice) %>
+        <%= practice_important?(@practice) %>
+      </p>
     </div>
 
-    <div class="fs-5 px-3 text-break">
+    <div class="text-break">
       <%= practice_memo_blank?(@practice) %>
     </div>
 

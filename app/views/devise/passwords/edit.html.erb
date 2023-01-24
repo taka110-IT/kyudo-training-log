@@ -6,29 +6,29 @@
     <%= f.hidden_field :reset_password_token %>
 
     <div class="mb-3 row justify-content-center">
-      <div class="field col-5 fs-5">
+      <div class="field">
         <%= f.label :password, t('devise.passwords.edit.new_password'), class: "form-label" %>
         <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control" %>
         <% if @minimum_password_length %>
-          <p class="fs-6 text-danger">(<%= t('devise.passwords.new.validates', count: @minimum_password_length) %>)</p>
+          <p>(<%= t('devise.passwords.new.validates', count: @minimum_password_length) %>)</p>
         <% end %>
       </div>
     </div>
 
     <div class="mb-4 row justify-content-center">
-      <div class="field col-5 fs-5">
+      <div class="field">
         <%= f.label :password_confirmation, class: "form-label" %>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
       </div>
     </div>
 
     <div class="actions text-center my-3">
-      <%= f.submit t('devise.passwords.edit.change_my_password'), class: "btn btn-outline-success col-3 text-wrap" %>
+      <%= f.submit t('devise.passwords.edit.change_my_password'), class: "btn btn-outline-success text-wrap" %>
     </div>
   <% end %>
 
-  <div class="text-center my-4">
-    <%= link_to t('devise.shared.links.back'), root_path, class: "btn btn-outline-primary col-3 text-wrap" %>
+  <div class="text-center mb-4">
+    <%= link_to t('devise.shared.links.back'), root_path, class: "btn btn-outline-primary text-wrap" %>
   </div>
 
   <div class="text-center my-3">

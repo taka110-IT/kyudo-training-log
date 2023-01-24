@@ -1,9 +1,9 @@
-<div class="container-fluid row">
+<div class="container-fluid">
   <%= turbo_frame_tag target do %>
     <%= form_with(model: target, class: "row g-3 align-items-center", data: { action: "turbo:submit-end->targets-modal#close", turbo_frame: "_top" }) do |form| %>
       <% if target.errors.any? %>
-        <div style="color: red">
-          <h2><%= t 'errors.template.body' %></h2>
+        <div class="text-danger">
+          <div><%= t 'errors.template.body' %></div>
 
           <ul>
             <% target.errors.each do |error| %>
@@ -13,18 +13,18 @@
         </div>
       <% end %>
 
-      <div class="col-auto">
-        <%= form.label :total, style: "display: block", class: "col-form-label fs-4" %>
+      <div class="field">
+        <%= form.label :total, style: "display: block", class: "form-label fs-5" %>
       </div>
-      <div class="col-auto">
-        <%= form.number_field :total, min: 1, max: 10000, class: "form-control text-center fs-4"%>
+      <div class="field">
+        <%= form.number_field :total, min: 1, max: 10000, class: "form-control text-center fs-5"%>
       </div>
 
       <div class="text-end">
         <%= form.hidden_field :year, value: @target.year %>
         <%= form.hidden_field :month, value: @target.month %>
         <%= form.hidden_field :user_id, value: current_user.id %>
-        <%= form.submit class: "bi bi-pencil btn btn-outline-success col-4 text-wrap" %>
+        <%= form.submit class: "btn btn-outline-success text-wrap" %>
       </div>
     <% end %>
   <% end %>
