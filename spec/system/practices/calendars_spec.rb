@@ -25,13 +25,13 @@ RSpec.describe 'Practices::Calendars', js: true, type: :system do
   end
 
   it 'can show practice from calendars' do
-    click_link '2射'
+    click_link '2'
 
     expect(page).to have_content '2023年01月01日の記録'
   end
 
   it 'can update practice from calendars' do
-    click_link '2射'
+    click_link '2'
 
     within '#practices_modal' do
       click_link '編集'
@@ -44,7 +44,7 @@ RSpec.describe 'Practices::Calendars', js: true, type: :system do
   end
 
   it 'can delete practice from calendars' do
-    click_link '2射'
+    click_link '2'
 
     within '#practices_modal' do
       click_link '編集'
@@ -59,7 +59,7 @@ RSpec.describe 'Practices::Calendars', js: true, type: :system do
 
   it 'can update practice from past calendars' do
     click_link '<<'
-    click_link '5射'
+    click_link '5'
 
     within '#practices_modal' do
       click_link '編集'
@@ -74,7 +74,7 @@ RSpec.describe 'Practices::Calendars', js: true, type: :system do
 
   it 'can delete practice from past calendars' do
     click_link '<<'
-    click_link '5射'
+    click_link '5'
 
     within '#practices_modal' do
       click_link '編集'
