@@ -40,7 +40,7 @@ class TargetsController < ApplicationController
   private
 
   def set_target
-    @target = Target.find_by(id: params[:id])
+    @target = current_user.targets.find_by(id: params[:id])
   end
 
   def target_params
