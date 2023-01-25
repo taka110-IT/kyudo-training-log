@@ -6,7 +6,7 @@
       <% calendar_displayed_practices.each do |calendar_displayed_practice| %>
         <div>
           <% calendar_displayed_practice.shooting_count ||= 0 %>
-          <%= link_to t('views.index.shooting_counts', count: calendar_displayed_practice.shooting_count),
+          <%= link_to "#{calendar_displayed_practice.shooting_count}",
                       practice_path(calendar_displayed_practice),
                       data: { turbo_frame: "practices_modal" } %>
         </div>

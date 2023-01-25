@@ -204,7 +204,7 @@ ja:
       no_target: 目標射数が入力されていません
       remaining_shots: "目標達成まで　%{count}射"
       result: 現在
-      shooting_counts: "%{count}"
+      shooting_counts: "%{count}射"
       target: 目標
       target_input: "%{year}年%{month}月の目標を入力"
       target_edit: "目標を修正"
