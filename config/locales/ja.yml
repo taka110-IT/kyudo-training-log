@@ -222,6 +222,8 @@ ja:
     tab:
       all: 全てのメモ
       important: 大切なメモ
+    footer:
+      privacy_policy: プライバシーポリシー
   controllers:
     practices:
       create: 記録を保存しました。
