@@ -223,6 +223,7 @@ ja:
       all: 全てのメモ
       important: 大切なメモ
     footer:
+      how_to_use: 使い方
       privacy_policy: プライバシーポリシー
       terms_of_services: 利用規約
   controllers:

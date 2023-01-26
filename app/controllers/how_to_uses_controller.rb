@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-class PrivacyPoliciesController < ApplicationController
+class HowToUsesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index]
+
   def index; end
 end

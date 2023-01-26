@@ -24,7 +24,9 @@
     </main>
     <footer class="footer py-3">
       <ul class="nav justify-content-center my-2">
-        <li class="nav-item px-2 text-muted">使い方</li>
+        <li class="nav-item px-2 text-muted">
+          <%= link_to t('views.footer.how_to_use'), how_to_uses_path, data: { turbo: false } %>
+        </li>
         <li class="nav-item px-2 text-muted">
           <%= link_to t('views.footer.terms_of_services'), terms_of_services_path, data: { turbo: false } %>
         </li>
