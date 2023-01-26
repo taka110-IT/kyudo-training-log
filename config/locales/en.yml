@@ -257,6 +257,7 @@ en:
       all: All Memos
       important: Important Memos
     footer:
+      how_to_use: How to use
       privacy_policy: Privacy Policy
       terms_of_services: Terms of Services
   controllers:

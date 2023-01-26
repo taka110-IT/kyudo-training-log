@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :practices
   resources :targets, only: %i[new create edit update]
 
+  resources :how_to_uses, only: [:index]
   resources :privacy_policies, only: [:index]
   resources :terms_of_services, only: [:index]
 
