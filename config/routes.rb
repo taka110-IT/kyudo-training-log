@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :targets, only: %i[new create edit update]
 
   resources :privacy_policies, only: [:index]
+  resources :terms_of_services, only: [:index]
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end

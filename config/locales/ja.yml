@@ -224,6 +224,7 @@ ja:
       important: 大切なメモ
     footer:
       privacy_policy: プライバシーポリシー
+      terms_of_services: 利用規約
   controllers:
     practices:
       create: 記録を保存しました。
