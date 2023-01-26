@@ -258,6 +258,7 @@ en:
       important: Important Memos
     footer:
       privacy_policy: Privacy Policy
+      terms_of_services: Terms of Services
   controllers:
     practices:
       create: "Practice was successfully created."
