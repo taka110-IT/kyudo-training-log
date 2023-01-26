@@ -256,6 +256,8 @@ en:
     tab:
       all: All Memos
       important: Important Memos
+    footer:
+      privacy_policy: Privacy Policy
   controllers:
     practices:
       create: "Practice was successfully created."

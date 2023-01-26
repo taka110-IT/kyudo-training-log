@@ -26,7 +26,9 @@
       <ul class="nav justify-content-center my-2">
         <li class="nav-item px-2 text-muted">使い方</li>
         <li class="nav-item px-2 text-muted">利用規約</li>
-        <li class="nav-item px-2 text-muted">プライバシーポリシー</li>
+        <li class="nav-item px-2 text-muted">
+          <%= link_to t('views.footer.privacy_policy'), privacy_policies_path, data: { turbo: false }  %>
+        </li>
       </ul>
       <p class="text-center text-muted mb-0">&copy; 2022 taka110-IT</p>
     </footer>
