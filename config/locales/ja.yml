@@ -208,6 +208,7 @@ ja:
       target: 目標
       target_input: "%{year}年%{month}月の目標を入力"
       target_edit: "目標を修正"
+      title: あなたの練習記録
     new:
       title: 練習記録を入力
     pagination:
