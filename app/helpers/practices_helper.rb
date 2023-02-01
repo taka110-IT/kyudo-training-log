@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
 module PracticesHelper
-  def practice_important?(practice)
+  def practice_important_icon(practice)
     practice.important == true ? '⭐️' : ''
   end
 
-  def practice_fixed?(practice)
+  def practice_fixed_icon(practice)
     practice.fixed == true ? '📌' : ''
   end
 
-  def practice_shooting_count_blank?(practice)
+  def practice_shooting_count_display(practice)
     if practice.shooting_count.blank?
       t('views.index.shooting_counts', count: 0)
     else
@@ -17,7 +17,7 @@ module PracticesHelper
     end
   end
 
-  def practice_memo_blank?(practice)
+  def practice_memo_blank_message(practice)
     practice.memo.presence || t('views.show.no_memos')
   end
 end
