@@ -1,4 +1,32 @@
 en:
+  activerecord:
+    attributes:
+      user:
+        confirmation_sent_at: confirmation_sent_at
+        confirmation_token: confirmation_token
+        confirmed_at: confirmed_at
+        created_at: created_at
+        current_password: current_password
+        current_sign_in_at: current_sign_in_at
+        current_sign_in_ip: current_sign_in_ip
+        email: email
+        encrypted_password: encrypted_password
+        failed_attempts: failed_attempts
+        last_sign_in_at: last_sign_in_at
+        last_sign_in_ip: last_sign_in_ip
+        locked_at: locked_at
+        password: password
+        password_confirmation: password_confirmation
+        remember_created_at: remember_created_at
+        remember_me:        remember_me
+        reset_password_sent_at: reset_password_sent_at
+        reset_password_token: reset_password_token
+        sign_in_count: sign_in_count
+        unconfirmed_email: unconfirmed_email
+        unlock_token: unlock_token
+        updated_at: updated_at
+    models:
+      user: user
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."

@@ -8,7 +8,7 @@
     <div class="mb-3 row justify-content-center">
       <div class="field">
         <%= f.label :password, t('devise.passwords.edit.new_password'), class: "form-label" %>
-        <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control" %>
+        <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control", placeholder: t('activerecord.attributes.user.password') %>
         <% if @minimum_password_length %>
           <p>(<%= t('devise.passwords.new.validates', count: @minimum_password_length) %>)</p>
         <% end %>
@@ -18,7 +18,7 @@
     <div class="mb-4 row justify-content-center">
       <div class="field">
         <%= f.label :password_confirmation, class: "form-label" %>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: t('activerecord.attributes.user.password_confirmation') %>
       </div>
     </div>
 
