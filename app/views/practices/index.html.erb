@@ -22,12 +22,20 @@
 
     <%= render 'tabs' %>
 
-    <div id="practices">
-      <% @user_practices.each do |practice| %>
-        <div>
-          <%= render practice %>
+    <div>
+      <% if @user_practices.length == 0 %>
+        <div class="text-center fs-5 text-secondary my-3">
+          <%= "記録はありません" %>
         </div>
-      <% end %>
+      <% else %>
+        <div id="practices">
+          <% @user_practices.each do |practice| %>
+            <div>
+              <%= render practice %>
+            </div>
+          <% end %>
+        </div>
+        <% end %>
     </div>
 
     <div class="my-4">
