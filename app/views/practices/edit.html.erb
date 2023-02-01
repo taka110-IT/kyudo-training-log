@@ -1,13 +1,13 @@
 <div class="container-fluid">
-  <h1 class="text-center mb-3"><%= t 'views.edit.title' %></h1>
+  <h1 class="text-center fs-4 mb-4"><%= t 'views.edit.title' %></h1>
 
   <%= render "form", practice: @practice %>
 
-  <div class="text-center mb-3">
-    <%= link_to t('views.common.destroy'), @practice, data: { turbo_method: :delete, turbo_confirm: t('views.edit.are_you_sure'), turbo_frame: "_top" }, class: "btn btn-outline-danger text-wrap" %>
+  <div class="text-center mb-4">
+    <%= link_to t('views.common.back'), root_path(start_date: [@practice.date.year, @practice.date.mon, @practice.date.day].join('-')), data: { turbo_frame: "_top" }, class: "btn btn-outline-primary btn-lg text-wrap" %>
   </div>
 
-  <div class="text-center mb-3">
-    <%= link_to t('views.common.back'), root_path(start_date: [@practice.date.year, @practice.date.mon, @practice.date.day].join('-')), data: { turbo_frame: "_top" }, class: "btn btn-outline-primary text-wrap" %>
+  <div class="text-center">
+    <%= link_to t('views.common.destroy'), @practice, data: { turbo_method: :delete, turbo_confirm: t('views.edit.are_you_sure'), turbo_frame: "_top" }, class: "btn btn-outline-secondary btn-sm text-wrap" %>
   </div>
 </div>

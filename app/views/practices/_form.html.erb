@@ -15,21 +15,21 @@
     <div class="mt-3 row justify-content-center">
       <div class="field">
         <%= form.label :date, style: "display: block", class: "form-label" %>
-        <%= form.date_field :date, class: "form-control text-center" %>
+        <%= form.date_field :date, class: "form-control text-center", placeholder: t('activerecord.attributes.practice.date') %>
       </div>
     </div>
 
     <div class="mt-3 row justify-content-center">
       <div class="field">
         <%= form.label :shooting_count, style: "display: block", class: "form-label" %>
-        <%= form.number_field :shooting_count, min: 0, max: 500, class: "form-control text-center" %>
+        <%= form.number_field :shooting_count, min: 0, max: 500, class: "form-control text-center", placeholder: t('activerecord.attributes.practice.shooting_count') %>
       </div>
     </div>
 
     <div class="mt-3 row justify-content-center">
       <div class="field">
         <%= form.label :memo, style: "display: block", class: "form_label" %>
-        <%= form.text_area :memo, class: "form-control memo_textarea" %>
+        <%= form.text_area :memo, class: "form-control memo_textarea", placeholder: t('activerecord.attributes.practice.memo') %>
       </div>
     </div>
 
@@ -48,7 +48,7 @@
 
     <div class="text-center my-3">
       <%= form.hidden_field :user_id, value: current_user.id %>
-      <%= form.submit class: "btn btn-outline-success text-wrap" %>
+      <%= form.submit class: "btn btn-outline-success btn-lg text-wrap" %>
     </div>
   <% end %>
 </div>

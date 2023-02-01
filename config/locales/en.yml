@@ -242,6 +242,8 @@ en:
       target: Target
       target_input: "Target inputs for %{year}-%{month}"
       target_edit: "Target edits"
+      title: "Your Practices"
+      no_practices: "No Practices"
     new:
       title: Input Practice
     pagination:

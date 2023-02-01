@@ -17,7 +17,7 @@
         <%= form.label :total, style: "display: block", class: "form-label fs-5" %>
       </div>
       <div class="field">
-        <%= form.number_field :total, min: 1, max: 10000, class: "form-control text-center fs-5"%>
+        <%= form.number_field :total, min: 1, max: 10000, class: "form-control text-center fs-5", placeholder: t('activerecord.attributes.target.total') %>
       </div>
 
       <div class="text-end">

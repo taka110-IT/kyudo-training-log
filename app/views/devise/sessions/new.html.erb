@@ -1,19 +1,19 @@
 <div class="container-fluid">
-  <h2 class="mb-4 text-center"><%= t 'devise.sessions.new.sign_in' %></h2>
+  <h1 class="text-center fs-4 mb-4"><%= t 'devise.sessions.new.sign_in' %></h1>
 
   <%= form_with model: @user, url: session_path(resource_name), data: { turbo: false }, local: true, class: "row g-3 align-items-center" do |f| %>
 
     <div class="mb-3 row justify-content-center">
       <div class="field">
         <%= f.label :email, class: "form-label" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: t('activerecord.attributes.user.email') %>
       </div>
     </div>
 
     <div class="mb-3 row justify-content-center">
       <div class="field">
         <%= f.label :password, class: "form-label" %>
-        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: t('activerecord.attributes.user.password') %>
       </div>
     </div>
 
