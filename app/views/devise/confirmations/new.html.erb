@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <h1 class="text-center fs-4 mb-4"><%= t 'devise.confirmations.new.resend_confirmation_instructions' %></h1>
 
-  <%= form_with model: @user, url: confirmation_path(resource_name), data: { turbo: false }, local:true, class: "row g-3 align-items-center" do |f| %>
+  <%= form_with model: @user, url: user_confirmation_path, data: { turbo: false }, local:true, class: "row g-3 align-items-center" do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="mb-3 row justify-content-center">
