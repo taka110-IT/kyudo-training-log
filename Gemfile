@@ -55,11 +55,11 @@ gem 'bootsnap', require: false
 
 gem 'devise'
 gem 'devise-i18n'
+gem 'dotenv-rails'
 gem 'i18n_generators'
 gem 'kaminari'
 gem 'meta-tags'
 gem 'simple_calendar', '~> 2.4'
-gem 'dotenv-rails'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
