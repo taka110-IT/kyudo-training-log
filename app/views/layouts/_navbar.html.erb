@@ -7,17 +7,10 @@
       <a class="btn btn-outline-success btn-sm dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         メニュー
       </a>
-    <% if user_signed_in? %>
-        <ul class="dropdown-menu dropdown-menu-end">
-          <li><%= link_to t('layouts.application.edit_profile'), edit_user_registration_path, class: 'dropdown-item' %></li>
-          <li><%= link_to t('layouts.application.logout'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'dropdown-item' %></li>
-        </ul>
-      <% else %>
-        <ul class="dropdown-menu dropdown-menu-end">
-          <li><%= link_to t('devise.shared.links.sign_up'), new_user_registration_path, class: 'dropdown-item' %></li>
-          <li><%= link_to t('devise.shared.links.sign_in'), new_user_session_path, class: 'dropdown-item btn btn-outline-success' %></li>
-        </ul>
-      <% end %>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><%= link_to t('layouts.application.edit_profile'), edit_user_registration_path, class: 'dropdown-item' %></li>
+        <li><%= link_to t('layouts.application.logout'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'dropdown-item' %></li>
+      </ul>
     </div>
   </div>
 </nav>
