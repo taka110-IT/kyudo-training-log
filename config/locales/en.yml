@@ -241,7 +241,7 @@ en:
       important: ⭐️Important
     index:
       no_target: "Enter your targets for the month!"
-      remaining_shots: "Remained:%{count}shots"
+      remaining_shots: "Remained:"
       result: Result
       shooting_counts: "%{count}"
       target: Target

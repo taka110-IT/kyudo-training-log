@@ -207,7 +207,7 @@ ja:
       important: ⭐️大切な記録
     index:
       no_target: 今月の目標を登録しましょう
-      remaining_shots: "目標達成まで　%{count}射"
+      remaining_shots: "目標達成まで"
       result: 合計
       shooting_counts: "%{count}"
       target: 目標

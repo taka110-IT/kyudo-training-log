@@ -54,7 +54,9 @@
         <% if @remaining_shots <= 0 %>
           <span class="text-danger"><%= t 'views.achievement.title' %></span>
         <% else %>
-          <span><%= t('views.index.remaining_shots', count: @remaining_shots) %></span>
+          <span><%= t('views.index.remaining_shots') %></span>
+          <span class="fs-2"><%= t('views.index.shooting_counts', count: @remaining_shots) %></span>
+          <span><%= t 'views.common.shots' %></span>
         <% end %>
       <% end %>
     </div>
