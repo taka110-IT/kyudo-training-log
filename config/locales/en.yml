@@ -231,6 +231,10 @@ en:
     edit:
       title: Edit Practice
       are_you_sure: "Are you sure?"
+    footer:
+      how_to_use: How to use
+      privacy_policy: Privacy Policy
+      terms_of_services: Terms of Services
     form:
       fixed: 📌Fixed
       important: ⭐️Important
@@ -258,10 +262,8 @@ en:
     tab:
       all: All Memos
       important: Important Memos
-    footer:
-      how_to_use: How to use
-      privacy_policy: Privacy Policy
-      terms_of_services: Terms of Services
+    welcome:
+      registered: Click here if you have registered
   controllers:
     practices:
       create: "Practice was successfully created."

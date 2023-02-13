@@ -197,6 +197,10 @@ ja:
     edit:
       title: 練習記録を編集
       are_you_sure: 本当に削除してよろしいですか？
+    footer:
+      how_to_use: 使い方
+      privacy_policy: プライバシーポリシー
+      terms_of_services: 利用規約
     form:
       fixed: 📌固定表示する
       important: ⭐️大切な記録
@@ -224,10 +228,8 @@ ja:
     tab:
       all: 全てのメモ
       important: 大切なメモ
-    footer:
-      how_to_use: 使い方
-      privacy_policy: プライバシーポリシー
-      terms_of_services: 利用規約
+    welcome:
+      registered: 登録済みの方はこちら
   controllers:
     practices:
       create: 記録を保存しました。
