@@ -8,8 +8,8 @@ en:
     attributes:
       practice:
         date: Date
-        fixed: 📌
-        important: ⭐
+        fixed: 📌Fixed
+        important: ⭐️Important
         memo: Memo
         shooting_count: Shooting_count
         user: :activerecord.models.user

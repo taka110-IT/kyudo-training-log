@@ -8,8 +8,8 @@ ja:
     attributes:
       practice:
         date: 日付
-        fixed: 📌
-        important: ⭐️
+        fixed: 📌固定表示する
+        important: ⭐️大切な記録
         memo: メモ
         shooting_count: 射数
         user: :activerecord.models.user
