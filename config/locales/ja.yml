@@ -208,8 +208,8 @@ ja:
     index:
       no_target: 今月の目標を登録しましょう
       remaining_shots: "目標達成まで　%{count}射"
-      result: 現在
-      shooting_counts: "%{count}射"
+      result: 合計
+      shooting_counts: "%{count}"
       target: 目標
       target_input: "%{year}年%{month}月の目標を登録"
       target_edit: "目標を修正"

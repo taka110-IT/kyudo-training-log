@@ -243,7 +243,7 @@ en:
       no_target: "Enter your targets for the month!"
       remaining_shots: "Remained:%{count}shots"
       result: Result
-      shooting_counts: "%{count}shots"
+      shooting_counts: "%{count}"
       target: Target
       target_input: "Target inputs for %{year}-%{month}"
       target_edit: "Target edits"

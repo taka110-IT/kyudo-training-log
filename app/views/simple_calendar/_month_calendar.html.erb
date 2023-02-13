@@ -17,33 +17,37 @@
     <% end %>
 
     <div class="container-fluid my-3">
-      <div class="card">
-        <div class="card-header">
-          <span class="fs-5">
-            <%= start_date.year %><%= t 'datetime.prompts.year' %>
-            <%= t('date.month_names')[start_date.month] %>
-          </span>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <span class="fs-5 me-3"><%= t 'views.index.target' %></span>
-            <span class="fs-5">
-              <%= @target_data.blank? ?
-                    t('views.index.shooting_counts', count: 0)
-                    : t('views.index.shooting_counts', count: @target_data.first[:total]) %>
-            </span>
-          </li>
-          <li class="list-group-item">
-            <span class="fs-5 me-3"><%= t 'views.index.result' %></span>
-            <span class="fs-5">
-              <% if @target_data.blank? || @remaining_shots.positive? %>
-                <span><%= t('views.index.shooting_counts', count: @results) %></span>
-              <% else %>
-               <span class="text-danger"><%= t('views.index.shooting_counts', count: @results)  %></span>
-              <% end %>
-            </span>
-          </li>
-        </ul>
+      <div class="calendar-heading mb-1 text-center">
+        <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: "me-2 text-decoration-none fs-1" %>
+        <span class="calendar-title fs-3 mx-5"><%= start_date.year %><%= t 'datetime.prompts.year' %><%= t('date.month_names')[start_date.month] %></span>
+        <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: "ms-2 text-decoration-none fs-1" %>
+      </div>
+
+      <div class="text-center">
+        <span class="me-2"><%= t 'views.index.result' %></span>
+        <span class="fs-1">
+          <% if @target_data.blank? || @remaining_shots.positive? %>
+            <span><%= t('views.index.shooting_counts', count: @results) %></span>
+          <% else %>
+            <span class="text-danger"><%= t('views.index.shooting_counts', count: @results) %></span>
+          <% end %>
+        </span>
+        <span><%= t 'views.common.shots' %></span>
+
+        <span class="fs-2">/</span>
+
+        <span class="me-2"><%= t 'views.index.target' %></span>
+        <span class="fs-1">
+          <%= @target_data.blank? ?
+                t('views.index.shooting_counts', count: 0)
+                : t('views.index.shooting_counts', count: @target_data.first[:total]) %>
+        </span>
+        <span><%= t 'views.common.shots' %></span>
+        <%= turbo_frame_tag 'targets_input' do %>
+            <% unless @target_data.blank? %>
+              <%= link_to '', edit_target_path(@target_data.first[:id]), data: { turbo_frame: "targets_modal" }, class: "bi bi-pencil text-success mx-2" %>
+            <% end %>
+        <% end %>
       </div>
     </div>
 
@@ -69,13 +73,8 @@
       <% end %>
     <% end %>
   </div>
-  <div class="container-fluid">
-    <div class="calendar-heading mb-1 text-center">
-      <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: "me-2 text-decoration-none" %>
-      <span class="calendar-title"><%= start_date.year %><%= t 'datetime.prompts.year' %><%= t('date.month_names')[start_date.month] %></span>
-      <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: "ms-2 text-decoration-none" %>
-    </div>
 
+  <div class="container-fluid">
     <table class="table table-bordered border-dark text-center" >
       <thead>
         <tr>
