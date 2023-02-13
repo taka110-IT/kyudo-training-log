@@ -1,6 +1,6 @@
 <h1 class="text-center fs-5 mt-2"><%= t('views.index.title') %></h1>
 
-<div class="container-fluid mb-4">
+<div class="container-fluid mb-5">
   <%= turbo_frame_tag 'calendar', data: { turbo_action: :advance } do %>
     <%= month_calendar(events: @calendar_displayed_practices) do |date, calendar_displayed_practices| %>
       <%= date.day %>
