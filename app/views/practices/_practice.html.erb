@@ -1,17 +1,17 @@
-<div id="<%= dom_id practice %>" class="my-2">
-  <div class="row lh-sm">
-    <p><span class="me-4"><%= l(practice.date, format: :long) %></span>
-       <%= practice_shooting_count_display(practice) %>
-       <%= practice_fixed_icon(practice) %>
-       <%= practice_important_icon(practice) %>
-    </p>
+<div id="<%= dom_id practice %>" class="my-4">
+  <div class="row lh-sm justify-content-between">
+    <div class="col-9">
+      <span class="me-4"><u><%= l(practice.date, format: :long) %></u></span>
+      <span></span><%= practice_shooting_count_display(practice) %><%= t 'views.common.shots' %>
+      <span><%= practice_fixed_icon(practice) %></span>
+      <span><%= practice_important_icon(practice) %></span>
+    </div>
+    <div class="col-2">
+      <%= link_to '', edit_practice_path(practice), data: { turbo_frame: "_top" }, class: "bi bi-pencil text-success mx-2" %>
+    </div>
   </div>
 
-  <div class="text-break">
+  <div class="text-break border-bottom pt-2 pb-3 px-2">
     <%= practice_memo_blank_message(practice) %>
-  </div>
-
-  <div class="text-end border-bottom border-dark border-opacity-25 py-2 px-3">
-    <%= link_to t('views.common.edit'), edit_practice_path(practice), data: { turbo_frame: "_top" }, class: "btn btn-outline-success btn-sm" %>
   </div>
 </div>
