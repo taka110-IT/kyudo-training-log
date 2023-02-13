@@ -1,6 +1,6 @@
 <% if flash.any? %>
-  <div class="row">
-    <div class="col-">
+  <div>
+    <div>
       <% flash.each do |name, message| %>
         <% break if message == 'achievement' %>
         <div class="alert alert-<%= name == 'notice' ? 'success' : 'warning' %> alert-dismissible fade show" role="alert">
