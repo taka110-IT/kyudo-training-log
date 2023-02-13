@@ -43,7 +43,7 @@
         <span><%= t 'views.common.shots' %></span>
         <%= turbo_frame_tag 'targets_input' do %>
             <% unless @target_data.blank? %>
-              <%= link_to '', edit_target_path(@target_data.first[:id]), data: { turbo_frame: "targets_modal" }, class: "bi bi-pencil text-success mx-2" %>
+              <%= link_to '', edit_target_path(@target_data.first[:id]), data: { turbo_frame: "targets_modal" }, class: "bi bi-pencil text-secondary mx-2" %>
             <% end %>
         <% end %>
       </div>
