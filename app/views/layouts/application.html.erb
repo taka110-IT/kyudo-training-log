@@ -19,7 +19,7 @@
       <% if user_signed_in? %>
         <%= render "layouts/navbar" %>
       <% else %>
-        <div class="my-4 px-3">
+        <div class="my-4 px-3 text-center">
           <%= link_to image_tag('title.png', alt: t('layouts.application.title'), class: "img-fluid"), root_path, data: { turbo_frame: "_top" } %>
         </div>
       <% end %>
