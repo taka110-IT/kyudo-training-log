@@ -4,13 +4,18 @@
 }
 
 .welcome-header:after {
-  content: "";
-  display: block;
-  height: 4px;
-  background: -webkit-linear-gradient(to right, rgb(143, 45, 86), transparent);
-  background: linear-gradient(to right, rgb(143, 45, 86), transparent);
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -13px;
+  display: inline-block;
+  width: 120px;
+  height: 3px;
+  transform: translateX(-50%);
+  background-color: #B3CCA5;
 }
 
-.indent {
-  text-indent: -0.9em;
+.welcome-content-list {
+  font-size: 13px;
+  text-indent: -1em;
 }

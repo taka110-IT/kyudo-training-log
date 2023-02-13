@@ -1,62 +1,72 @@
 <div class="container-fluid">
-  <div class="justify-content-center">
-    <h1 class="fs-4 welcome-header">弓道練習記録帳とは</h1>
-    <p class="mb-4">
-      弓道練習記録帳は、弓道の練習記録の管理・集計アプリです。<br>
-      スマートフォンやPCで手軽に練習記録の入力をしたり、過去の練習メモや月間の練習量の確認ができます。
-    </p>
+  <div class="justify-content-center lh-lg">
+    <h1 class="fs-6 mt-4 ps-4 pe-3">弓道の練習記録の管理・集計アプリです。</h1>
+    <p class="fs-6 mb-4 ps-4 pe-3">練習記録の登録、過去の練習メモや月間の練習量の確認ができます。</p>
 
-    <h2 class="fs-4 welcome-header">
-      <i class="bi bi-emoji-dizzy text-danger"></i>こんなこと、ありませんか？
-    </h2>
 
-    <ul class="list-unstyled ms-4">
-      <li class="indent"><span><i class="bi bi-exclamation-circle mx-2 text-danger"></i>練習で気付いたことをメモするのを忘れた</span></li>
-      <li class="indent"><span><i class="bi bi-exclamation-circle mx-2 text-danger"></i>新しい記録ノートになって、あの時のメモが見返せない</span></li>
-      <li class="indent"><span><i class="bi bi-exclamation-circle mx-2 text-danger"></i>的中率が低迷しているので練習のモチベーションが下がりがち</span></li>
-      <li class="indent"><span><i class="bi bi-exclamation-circle mx-2 text-danger"></i>なかなか道場に行けないけど少しでも練習は続けたい…</span></li>
-      <li class="indent"><span><i class="bi bi-exclamation-circle mx-2 text-danger"></i>まだ的前には立てないけど、教わったことは残しておきたい</span></li>
+    <div class="text-center my-4">
+      <%= link_to t('devise.shared.links.sign_up'), new_user_registration_path, class: 'btn btn-success btn-lg col-6' %>
+    </div>
+
+    <div class="text-center my-4">
+      <%= link_to t('views.welcome.registered'), new_user_session_path %>
+    </div>
+
+    <div class="text-center mb-4">
+      <i class="bi bi-emoji-dizzy text-danger fs-1"></i>
+      <h2 class="fs-5 welcome-header">こんなこと、ありませんか？</h2>
+    </div>
+
+    <ul class="text-center list-unstyled ms-4">
+      <li class="welcome-content-list"><span>練習で気付いたことをメモするのを忘れた</span></li>
+      <li class="welcome-content-list"><span>新しい記録ノートになって、あの時のメモが見返せない</span></li>
+      <li class="welcome-content-list"><span>中らなくて練習のモチベーションが下がってしまう</span></li>
+      <li class="welcome-content-list"><span>なかなか道場に行けないけど少しでも練習は続けたい…</span></li>
+      <li class="welcome-content-list"><span>的前に立ってないけど、教わったことは残しておきたい</span></li>
     </ul>
 
-    <h2 class="fs-4 welcome-header">
-      <i class="bi bi-emoji-smile text-success"></i>このアプリがサポートします！
-    </h2>
-
-    <div class="ms-4 indent">
-      <p><i class="bi bi-check-circle mx-2 text-success"></i>スマートフォンでどこでも手軽に射数やメモを記録できます。</p>
-      <p class="fy-2 text-center"><%= image_tag('input_practice.png', alt: '練習記録を簡単に入力できます。', size: '300x300', class: "img-thumbnail") %></p>
+    <div class="text-center mb-4">
+      <i class="bi bi-emoji-smile text-success fs-1"></i>
+      <h2 class="fs-5 welcome-header">このアプリがサポートします！</h2>
     </div>
 
-    <div class="ms-4 indent">
-      <p><i class="bi bi-check-circle mx-2 text-success"></i>大切なメモだけ表示したり、いつも目に入るように固定表示したりできます。</p>
-      <p class="fy-2 text-center"><%= image_tag('practices.png', alt: '全てのメモと大切なメモを切り替えできます。', size: '300x300', class: "img-thumbnail") %></p>
+    <ul class="text-center list-unstyled ms-4">
+      <li class="welcome-content-list">
+        <p><u>どこでも手軽に射数やメモを記録できます。</u></p>
+        <p class="fy-2 text-center"><%= image_tag('input_practice.png', alt: '練習記録を簡単に入力できます。', size: '300x300', class: "img-thumbnail") %></p>
+      </li>
+
+      <li class="welcome-content-list">
+        <p><u>大切なメモだけ表示、1番上に固定表示ができます。</u></p>
+        <p class="fy-2 text-center"><%= image_tag('practices.png', alt: '全てのメモと大切なメモを切り替えできます。', size: '300x300', class: "img-thumbnail") %></p>
+      </li>
+
+      <li class="welcome-content-list">
+        <p><u>的中は記録せず、射数のみ記録するようにしました。<br>的前以外の練習も射数に入れることができます。</u></p>
+        <p class="fy-2 text-center"><%= image_tag('calendar.png', alt: 'カレンダーにその日の射数を表示します。', size: '300x300', class: "img-thumbnail") %></p>
+      </li>
+
+      <li class="welcome-content-list">
+        <p><u>月の目標射数が入力できます。<br>練習を積み重ねて目標を超えていきましょう。</u></p>
+        <p class="fy-2 text-center"><%= image_tag('target.png', alt: '目標射数と現在の射数、目標までの残り射数が表示されます。', size: '300x200', class: "img-thumbnail") %></p>
+      </li>
+    </ul>
+
+    <div class="text-center mb-4">
+      <i class="bi bi-hand-thumbs-up text-primary fs-1"></i>
+      <h2 class="fs-5 welcome-header">練習を習慣にしていきましょう！</h2>
     </div>
 
-    <div class="ms-4 indent">
-      <p><i class="bi bi-check-circle mx-2 text-success"></i>あえて的中数は記録しないようにしました。射数のみを記録するので、的前だけでなく巻藁やゴム弓、徒手も射数に入れて、練習の積み重ねを実感しましょう。</p>
-      <p class="fy-2 text-center"><%= image_tag('calendar.png', alt: 'カレンダーにその日の射数を表示します。', size: '300x300', class: "img-thumbnail") %></p>
+    <div class="text-center mb-4">
+      メールアドレスがあれば無料で利用できます。<br>
+      <span class="text-danger">「継続は力なり」</span>を実感してみませんか？
+    </div>
+    <div class="text-center my-4">
+      <%= link_to t('devise.shared.links.sign_up'), new_user_registration_path, class: 'btn btn-success btn-lg col-6' %>
     </div>
 
-    <div class="ms-4 indent">
-      <p><i class="bi bi-check-circle mx-2 text-success"></i>月の初めに、今月の目標射数を入力しましょう。少しづつ練習を積み重ねて目標を超えていきましょう。</p>
-      <p class="fy-2 text-center"><%= image_tag('target.png', alt: '目標射数と現在の射数、目標までの残り射数が表示されます。', size: '300x200', class: "img-thumbnail") %></p>
-    </div>
-
-    <h2 class="fs-4 welcome-header">
-      <i class="bi bi-hand-thumbs-up text-primary"></i>練習を習慣にしていきましょう！
-    </h2>
-
-    <div class="mb-3">
-      メールアドレスがあれば無料で利用できます。
-      あなたも弓道練習記録帳で<span class="text-danger">「継続は力なり」</span>を実感してみませんか？
-    </div>
-    <div class="text-center mb-3">
-      <%= link_to t('devise.shared.links.sign_up'), new_user_registration_path, class: 'btn btn-primary btn' %>
-    </div>
-
-    <div class="text-center mb-3">
-      <p>すでにアカウントをお持ちですか？</p>
-      <%= link_to t('devise.shared.links.sign_in'), new_user_session_path, class: 'btn btn-outline-success' %>
+    <div class="text-center my-2">
+      <%= link_to t('views.welcome.registered'), new_user_session_path %>
     </div>
   </div>
 </div>

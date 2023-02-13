@@ -1,26 +1,26 @@
 <div class="container-fluid">
   <h1 class="text-center fs-4 mb-4"><%= t 'devise.unlocks.new.resend_unlock_instructions' %></h1>
 
-  <%= form_with model: @user, url: user_unlock_path, data: { turbo: false }, local: true, class: "row g-3 align-items-center" do |f| %>
+  <%= form_with model: @user, url: user_unlock_path, data: { turbo: false }, local: true, class: "align-items-center" do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="mb-3 row justify-content-center">
       <div class="field">
         <%= f.label :email, class: "form-label" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: t('activerecord.attributes.user.email') %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: 'user@example.com' %>
       </div>
     </div>
 
-    <div class="actions text-center my-3">
-      <%= f.submit t('devise.unlocks.new.resend_unlock_instructions'), class: "btn btn-outline-success text-wrap" %>
+    <div class="actions text-center my-4">
+      <%= f.submit t('devise.unlocks.new.resend_unlock_instructions'), class: "btn btn-success text-wrap" %>
     </div>
   <% end %>
 
-  <div class="text-center mb-3">
-    <%= link_to t('devise.shared.links.back'), root_path, class: "btn btn-outline-primary text-wrap" %>
+  <div class="text-center mb-4">
+    <%= link_to t('devise.shared.links.back'), root_path, class: "text-secondary" %>
   </div>
 
-  <div class="text-center my-3">
+  <div class="text-center mt-3">
     <%= render "devise/shared/links" %>
   </div>
 </div>

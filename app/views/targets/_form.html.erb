@@ -16,15 +16,18 @@
       <div class="field">
         <%= form.label :total, style: "display: block", class: "form-label fs-5" %>
       </div>
-      <div class="field">
-        <%= form.number_field :total, min: 1, max: 10000, class: "form-control text-center fs-5", placeholder: t('activerecord.attributes.target.total') %>
+      <div class="field col-6">
+        <%= form.number_field :total, min: 1, max: 10000, class: "form-control text-center fs-5", placeholder: 300 %>
+      </div>
+      <div class="field col-auto fs-5">
+        <%= t'views.common.shots' %>
       </div>
 
       <div class="text-end">
         <%= form.hidden_field :year, value: @target.year %>
         <%= form.hidden_field :month, value: @target.month %>
         <%= form.hidden_field :user_id, value: current_user.id %>
-        <%= form.submit class: "btn btn-outline-success text-wrap" %>
+        <%= form.submit class: "btn btn-success text-wrap" %>
       </div>
     <% end %>
   <% end %>

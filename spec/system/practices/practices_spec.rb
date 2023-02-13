@@ -14,26 +14,29 @@ RSpec.describe 'Practices::Practices', js: true, type: :system do
   end
 
   it 'can display top page' do
-    expect(page).to have_content '2023年 1月'
+    expect(page).to have_content '2023年1月'
     expect(page).to have_selector '.calendar-title', text: '2023年1月'
     expect(page).to have_selector '#practices-list', text: 'memo'
   end
 
   it 'can input practice' do
-    click_link '練習記録を入力'
+    click_link '練習記録を登録'
 
     fill_in 'practice[date]', with: Time.zone.local(2023, 1, 2)
     fill_in 'practice[shooting_count]', with: 1
     fill_in 'practice[memo]', with: 'memomemo'
     click_button '登録する'
 
-    expect(page).to have_content '記録を保存しました。'
+    expect(page).to have_content '記録を登録しました。'
     expect(page).to have_selector '.calendar-title', text: '2023年1月'
   end
 
   it 'can update practice' do
+    page.scroll_to(0, 500)
+    sleep 1
+
     within '#practices' do
-      click_link '編集', match: :first
+      find('.bi-pencil').click
     end
 
     fill_in 'practice[shooting_count]', with: 1
@@ -44,8 +47,11 @@ RSpec.describe 'Practices::Practices', js: true, type: :system do
   end
 
   it 'can delete practice' do
+    page.scroll_to(0, 500)
+    sleep 1
+
     within '#practices' do
-      click_link '編集', match: :first
+      find('.bi-pencil').click
     end
 
     click_link '削除する'

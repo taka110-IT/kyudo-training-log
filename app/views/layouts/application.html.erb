@@ -16,8 +16,14 @@
 
   <body class="d-flex flex-column h-100">
     <header>
-      <%= render "layouts/navbar" %>
-      <%= render "layouts/flash" %>
+      <% if user_signed_in? %>
+        <%= render "layouts/navbar" %>
+      <% else %>
+        <div class="my-4 px-3 text-center">
+          <%= link_to image_tag('title.png', alt: t('layouts.application.title'), class: "img-fluid"), root_path, data: { turbo_frame: "_top" } %>
+        </div>
+      <% end %>
+        <%= render "layouts/flash" %>
     </header>
     <main class="flex-grow-1">
     <%= yield %>
@@ -37,7 +43,7 @@
           <%= link_to t('views.footer.privacy_policy'), privacy_policies_path, data: { turbo: false } %>
         </li>
       </ul>
-      <p class="text-center text-muted mb-0">&copy; 2022 taka110-IT</p>
+      <p class="text-center text-muted mb-0">&copy; 2023 taka110-IT</p>
     </footer>
   </body>
 </html>

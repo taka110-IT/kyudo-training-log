@@ -1,19 +1,19 @@
 <div class="container-fluid">
   <h1 class="text-center fs-4 mb-4"><%= t 'devise.sessions.new.sign_in' %></h1>
 
-  <%= form_with model: @user, url: user_session_path, data: { turbo: false }, local: true, class: "row g-3 align-items-center" do |f| %>
+  <%= form_with model: @user, url: user_session_path, data: { turbo: false }, local: true, class: "align-items-center" do |f| %>
 
     <div class="mb-3 row justify-content-center">
       <div class="field">
         <%= f.label :email, class: "form-label" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: t('activerecord.attributes.user.email') %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: 'user@example.com' %>
       </div>
     </div>
 
     <div class="mb-3 row justify-content-center">
       <div class="field">
         <%= f.label :password, class: "form-label" %>
-        <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: t('activerecord.attributes.user.password') %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: 'PASSword123' %>
       </div>
     </div>
 
@@ -26,16 +26,16 @@
       <% end %>
     </div>
 
-    <div class="actions text-center my-3">
-      <%= f.submit t('devise.sessions.new.sign_in'), class: "btn btn-outline-success text-wrap" %>
+    <div class="actions text-center my-4">
+      <%= f.submit t('devise.sessions.new.sign_in'), class: "btn btn-success btn-lg text-wrap col-8" %>
     </div>
   <% end %>
 
-  <div class="text-center mb-3">
-    <%= link_to t('devise.shared.links.back'), root_path, class: "btn btn-outline-primary text-wrap" %>
+  <div class="text-center mb-4">
+    <%= link_to t('devise.shared.links.back'), root_path, class: "text-secondary" %>
   </div>
 
-  <div class="text-center my-3">
+  <div class="text-center mt-3">
     <%= render "devise/shared/links" %>
   </div>
 </div>

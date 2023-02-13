@@ -194,24 +194,29 @@ ja:
       back: 戻る
       destroy: 削除する
       edit: 編集
+      shots: 射
     edit:
       title: 練習記録を編集
       are_you_sure: 本当に削除してよろしいですか？
+    footer:
+      how_to_use: 使い方
+      privacy_policy: プライバシーポリシー
+      terms_of_services: 利用規約
     form:
       fixed: 📌固定表示する
       important: ⭐️大切な記録
     index:
-      no_target: 目標射数が入力されていません
-      remaining_shots: "目標達成まで　%{count}射"
-      result: 現在
-      shooting_counts: "%{count}射"
+      no_target: 今月の目標を登録しましょう
+      remaining_shots: "目標達成まで"
+      result: 合計
+      shooting_counts: "%{count}"
       target: 目標
-      target_input: "%{year}年%{month}月の目標を入力"
+      target_input: "%{year}年%{month}月の目標を登録"
       target_edit: "目標を修正"
-      title: あなたの練習記録
+      title: 練習記録
       no_practices: 記録はありません
     new:
-      title: 練習記録を入力
+      title: 練習記録を登録
     pagination:
       first: '<<'
       last: '>>'
@@ -224,17 +229,15 @@ ja:
     tab:
       all: 全てのメモ
       important: 大切なメモ
-    footer:
-      how_to_use: 使い方
-      privacy_policy: プライバシーポリシー
-      terms_of_services: 利用規約
+    welcome:
+      registered: 登録済みの方はこちら
   controllers:
     practices:
-      create: 記録を保存しました。
+      create: 記録を登録しました。
       destroy: 記録を削除しました。
       update: 記録を更新しました。
     targets:
-      create: 目標を設定しました。
+      create: 目標を登録しました。
       create_error: 登録できませんでした。目標は数字の1以上を入力してください。
       update: 目標を修正しました。
       update_error: 修正できませんでした。目標は数字の1以上を入力してください。

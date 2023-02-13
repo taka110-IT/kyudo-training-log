@@ -1,5 +1,5 @@
 # 弓道練習記録帳
-![title](https://user-images.githubusercontent.com/70277776/215962318-3d3d8526-048e-455b-bbb8-3fd939dc0053.png)
+![title](https://user-images.githubusercontent.com/70277776/218054719-6cbfa706-bbde-42c3-84bb-ec231aea6400.png)
 
 ## 概要
 弓道練習記録帳は、弓道の練習記録の管理・集計アプリです。<br>

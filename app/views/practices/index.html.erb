@@ -1,6 +1,6 @@
-<h1 class="text-center fs-5 mt-2"><%= t('views.index.title') %></h1>
+<h1 class="text-center fs-5 mt-3"><%= t('views.index.title') %></h1>
 
-<div class="container-fluid mb-4">
+<div class="container-fluid mb-5">
   <%= turbo_frame_tag 'calendar', data: { turbo_action: :advance } do %>
     <%= month_calendar(events: @calendar_displayed_practices) do |date, calendar_displayed_practices| %>
       <%= date.day %>
@@ -38,8 +38,14 @@
         <% end %>
     </div>
 
-    <div class="my-4">
+    <div class="mt-3">
       <%= paginate @user_practices, window:1%>
     </div>
   <% end %>
 </div>
+
+<nav class="navbar navbar-expand-md sticky-bottom bg-white justify-content-center border-top border-bottom">
+  <div class="my-2">
+    <%= link_to t('views.new.title'), new_practice_path, data: { turbo_frame: "_top" }, class: "bi bi-pencil btn btn-success btn-lg text-wrap" %>
+  </div>
+</nav>

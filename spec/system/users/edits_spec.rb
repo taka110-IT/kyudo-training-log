@@ -21,7 +21,7 @@ RSpec.describe 'Users::Edits', js: true, type: :system do
   end
 
   it 'can delete user' do
-    click_button 'アカウント削除'
+    click_link 'アカウント削除'
 
     page.accept_confirm
 

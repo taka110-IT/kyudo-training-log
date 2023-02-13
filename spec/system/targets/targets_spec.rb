@@ -12,22 +12,22 @@ RSpec.describe 'Targets::Targets', js: true, type: :system do
   end
 
   it 'can input target' do
-    click_link '2023年1月の目標を入力'
+    click_link '2023年1月の目標を登録'
 
     within '#targets_modal' do
       fill_in 'target[total]', with: 100
       click_button '登録する'
     end
 
-    expect(page).to have_content '目標を設定しました。'
-    expect(page).to have_content '目標 100射'
+    expect(page).to have_content '目標を登録しました。'
+    expect(page).to have_content '目標 100 射'
   end
 
   it 'can update target' do
     create(:target, user:)
     visit root_path
 
-    click_link '目標を修正'
+    first('.bi-pencil').click
 
     within '#targets_modal' do
       fill_in 'target[total]', with: 99
@@ -35,31 +35,32 @@ RSpec.describe 'Targets::Targets', js: true, type: :system do
     end
 
     expect(page).to have_content '目標を修正しました。'
-    expect(page).to have_content '目標 99射'
+    expect(page).to have_content '目標 99 射'
   end
 
   it 'can input target for past month' do
     create(:target, user:)
     click_link '<<'
 
-    click_link '2022年12月の目標を入力'
+    click_link '2022年12月の目標を登録'
 
     within '#targets_modal' do
       fill_in 'target[total]', with: 50
       click_button '登録する'
     end
 
-    expect(page).to have_content '目標を設定しました。'
+    expect(page).to have_content '目標を登録しました。'
     expect(page).to have_selector '.calendar-title', text: '2022年12月'
-    expect(page).to have_content '目標 50射'
+    expect(page).to have_content '目標 50 射'
   end
 
   it 'can update target for past month' do
     create(:target, user:, year: 2022, month: 12)
     visit root_path
     click_link '<<'
+    expect(page).to have_selector '.calendar-title', text: '2022年12月'
 
-    click_link '目標を修正'
+    first('.bi-pencil').click
 
     within '#targets_modal' do
       fill_in 'target[total]', with: 50
@@ -68,6 +69,6 @@ RSpec.describe 'Targets::Targets', js: true, type: :system do
 
     expect(page).to have_content '目標を修正しました。'
     expect(page).to have_selector '.calendar-title', text: '2022年12月'
-    expect(page).to have_content '目標 50射'
+    expect(page).to have_content '目標 50 射'
   end
 end

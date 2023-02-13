@@ -1,58 +1,64 @@
 <div class="simple-calendar">
   <div class="text-center">
-    <div class="container-fluid my-3">
-      <div class="card">
-        <div class="card-header">
-          <span class="fs-5">
-            <%= start_date.year %><%= t 'datetime.prompts.year' %>
-            <%= t('date.month_names')[start_date.month] %>
-          </span>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <span class="fs-5 me-3"><%= t 'views.index.target' %></span>
-            <span class="fs-5">
-              <%= @target_data.blank? ?
-                    t('views.index.shooting_counts', count: 0)
-                    : t('views.index.shooting_counts', count: @target_data.first[:total]) %>
-            </span>
-          </li>
-          <li class="list-group-item">
-            <span class="fs-5 me-3"><%= t 'views.index.result' %></span>
-            <span class="fs-5">
-              <% if @target_data.blank? || @remaining_shots.positive? %>
-                <span><%= t('views.index.shooting_counts', count: @results) %></span>
-              <% else %>
-               <span class="text-danger"><%= t('views.index.shooting_counts', count: @results)  %></span>
-              <% end %>
-            </span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="fs-5 mb-3">
+    <div class="fs-5 my-3">
       <% if @target_data.blank? %>
         <span class="text-success"><%= t 'views.index.no_target' %></span>
-      <% elsif @remaining_shots <= 0 %>
-        <span class="text-danger"><%= t 'views.achievement.title' %></span>
-      <% else %>
-        <span><%= t('views.index.remaining_shots', count: @remaining_shots ) %></span>
       <% end %>
     </div>
 
     <%= turbo_frame_tag 'targets_input' do %>
-      <div class="mb-3">
+      <div class="mb-4">
         <% if @target_data.blank? %>
-          <%= link_to t('views.index.target_input', year: start_date.year, month: start_date.month), new_target_path(year: start_date.year, month: start_date.month), data: { turbo_frame: "targets_modal" }, class: "btn btn-outline-success btn-sm" %>
-        <% else %>
-          <%= link_to t('views.index.target_edit'), edit_target_path(@target_data.first[:id]), data: { turbo_frame: "targets_modal" }, class: "btn btn-outline-success btn-sm" %>
+          <%= link_to t('views.index.target_input', year: start_date.year, month: start_date.month), new_target_path(year: start_date.year, month: start_date.month), data: { turbo_frame: "targets_modal" }, class: "btn btn-success btn-lg" %>
         <% end %>
       </div>
     <% end %>
 
-    <div class="mb-3">
-      <%= link_to t('views.new.title'), new_practice_path, data: { turbo_frame: "_top" }, class: "bi bi-pencil btn btn-success btn-lg text-wrap" %>
+    <div class="container-fluid my-4">
+      <div class="calendar-heading mb-1 text-center">
+        <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: "me-2 text-decoration-none fs-1" %>
+        <span class="calendar-title fs-3 mx-5"><%= start_date.year %><%= t 'datetime.prompts.year' %><%= t('date.month_names')[start_date.month] %></span>
+        <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: "ms-2 text-decoration-none fs-1" %>
+      </div>
+
+      <div class="text-center">
+        <span class="me-2"><%= t 'views.index.result' %></span>
+        <span class="fs-1">
+          <% if @target_data.blank? || @remaining_shots.positive? %>
+            <span><%= t('views.index.shooting_counts', count: @results) %></span>
+          <% else %>
+            <span class="text-danger"><%= t('views.index.shooting_counts', count: @results) %></span>
+          <% end %>
+        </span>
+        <span><%= t 'views.common.shots' %></span>
+
+        <span class="fs-2">/</span>
+
+        <span class="me-2"><%= t 'views.index.target' %></span>
+        <span class="fs-1">
+          <%= @target_data.blank? ?
+                t('views.index.shooting_counts', count: 0)
+                : t('views.index.shooting_counts', count: @target_data.first[:total]) %>
+        </span>
+        <span><%= t 'views.common.shots' %></span>
+        <%= turbo_frame_tag 'targets_input' do %>
+            <% unless @target_data.blank? %>
+              <%= link_to '', edit_target_path(@target_data.first[:id]), data: { turbo_frame: "targets_modal" }, class: "bi bi-pencil text-secondary mx-2" %>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="fs-5 mb-4">
+      <% unless @target_data.blank? %>
+        <% if @remaining_shots <= 0 %>
+          <span class="text-danger"><%= t 'views.achievement.title' %></span>
+        <% else %>
+          <span><%= t('views.index.remaining_shots') %></span>
+          <span class="fs-2"><%= t('views.index.shooting_counts', count: @remaining_shots) %></span>
+          <span><%= t 'views.common.shots' %></span>
+        <% end %>
+      <% end %>
     </div>
 
     <%= turbo_frame_tag 'achievement_message' do %>
@@ -63,13 +69,8 @@
       <% end %>
     <% end %>
   </div>
-  <div class="container-fluid">
-    <div class="calendar-heading mb-1 text-center">
-      <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: "me-2 text-decoration-none" %>
-      <span class="calendar-title"><%= start_date.year %><%= t 'datetime.prompts.year' %><%= t('date.month_names')[start_date.month] %></span>
-      <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: "ms-2 text-decoration-none" %>
-    </div>
 
+  <div class="container-fluid">
     <table class="table table-bordered border-dark text-center" >
       <thead>
         <tr>

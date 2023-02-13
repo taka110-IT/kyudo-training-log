@@ -228,21 +228,26 @@ en:
       back: Back
       destroy: Destroy
       edit: Edit
+      shots: shots
     edit:
       title: Edit Practice
       are_you_sure: "Are you sure?"
+    footer:
+      how_to_use: How to use
+      privacy_policy: Privacy Policy
+      terms_of_services: Terms of Services
     form:
       fixed: 📌Fixed
       important: ⭐️Important
     index:
-      no_target: Targets not input.
-      remaining_shots: "Remained:%{count}shots"
+      no_target: "Enter your targets for the month!"
+      remaining_shots: "Remained:"
       result: Result
-      shooting_counts: "%{count}shots"
+      shooting_counts: "%{count}"
       target: Target
       target_input: "Target inputs for %{year}-%{month}"
       target_edit: "Target edits"
-      title: "Your Practices"
+      title: "Practices"
       no_practices: "No Practices"
     new:
       title: Input Practice
@@ -258,10 +263,8 @@ en:
     tab:
       all: All Memos
       important: Important Memos
-    footer:
-      how_to_use: How to use
-      privacy_policy: Privacy Policy
-      terms_of_services: Terms of Services
+    welcome:
+      registered: Click here if you have registered
   controllers:
     practices:
       create: "Practice was successfully created."
