@@ -26,16 +26,16 @@
       <% end %>
     </div>
 
-    <div class="actions text-center my-3">
-      <%= f.submit t('devise.sessions.new.sign_in'), class: "btn btn-outline-success text-wrap" %>
+    <div class="actions text-center my-4">
+      <%= f.submit t('devise.sessions.new.sign_in'), class: "btn btn-success btn-lg text-wrap col-8" %>
     </div>
   <% end %>
 
-  <div class="text-center mb-3">
-    <%= link_to t('devise.shared.links.back'), root_path, class: "btn btn-outline-primary text-wrap" %>
+  <div class="text-center mb-4">
+    <%= link_to t('devise.shared.links.back'), root_path, class: "text-secondary" %>
   </div>
 
-  <div class="text-center my-3">
+  <div class="text-center mt-3">
     <%= render "devise/shared/links" %>
   </div>
 </div>
