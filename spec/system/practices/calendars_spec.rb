@@ -34,7 +34,7 @@ RSpec.describe 'Practices::Calendars', js: true, type: :system do
     click_link '2'
 
     within '#practices_modal' do
-      click_link '編集'
+      find('.bi-pencil').click
     end
 
     fill_in 'practice[shooting_count]', with: 1
@@ -47,7 +47,7 @@ RSpec.describe 'Practices::Calendars', js: true, type: :system do
     click_link '2'
 
     within '#practices_modal' do
-      click_link '編集'
+      find('.bi-pencil').click
     end
 
     click_link '削除する'
@@ -62,7 +62,7 @@ RSpec.describe 'Practices::Calendars', js: true, type: :system do
     click_link '5'
 
     within '#practices_modal' do
-      click_link '編集'
+      find('.bi-pencil').click
     end
 
     fill_in 'practice[shooting_count]', with: 2
@@ -77,7 +77,7 @@ RSpec.describe 'Practices::Calendars', js: true, type: :system do
     click_link '5'
 
     within '#practices_modal' do
-      click_link '編集'
+      find('.bi-pencil').click
     end
 
     click_link '削除する'

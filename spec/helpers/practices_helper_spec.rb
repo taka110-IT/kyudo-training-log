@@ -34,13 +34,13 @@ RSpec.describe PracticesHelper, type: :helper do
   context 'when shooting_count is nil' do
     it 'is displayed 0' do
       practice_shooting_count_is_nil = build(:practice, shooting_count: nil)
-      expect(helper.practice_shooting_count_display(practice_shooting_count_is_nil)).to eq '0射'
+      expect(helper.practice_shooting_count_display(practice_shooting_count_is_nil)).to eq '0'
     end
   end
 
   context 'when shooting_count is exist' do
     it 'is displayed shooting_count' do
-      expect(helper.practice_shooting_count_display(practice)).to eq '2射'
+      expect(helper.practice_shooting_count_display(practice)).to eq '2'
     end
   end
 

@@ -14,7 +14,7 @@ RSpec.describe 'Practices::Achievements', js: true, type: :system do
 
   it 'can display achievement message' do
     expect(page).to have_selector '.calendar-title', text: '2023年1月'
-    click_link '練習記録を入力'
+    click_link '練習記録を登録'
 
     fill_in 'practice[shooting_count]', with: 10
     fill_in 'practice[memo]', with: 'memo'
