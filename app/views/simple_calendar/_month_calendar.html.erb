@@ -10,8 +10,6 @@
       <div class="mb-3">
         <% if @target_data.blank? %>
           <%= link_to t('views.index.target_input', year: start_date.year, month: start_date.month), new_target_path(year: start_date.year, month: start_date.month), data: { turbo_frame: "targets_modal" }, class: "btn btn-success btn-lg" %>
-        <% else %>
-          <%= link_to t('views.index.target_edit'), edit_target_path(@target_data.first[:id]), data: { turbo_frame: "targets_modal" }, class: "btn btn-outline-success btn-sm" %>
         <% end %>
       </div>
     <% end %>
