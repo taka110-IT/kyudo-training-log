@@ -2,9 +2,8 @@
   <div class="row lh-sm justify-content-between">
     <div class="col-9">
       <span class="me-4"><u><%= l(practice.date, format: :long) %></u></span>
-      <span></span><%= practice_shooting_count_display(practice) %><%= t 'views.common.shots' %>
-      <span><%= practice_fixed_icon(practice) %></span>
-      <span><%= practice_important_icon(practice) %></span>
+      <span><%= practice_shooting_count_display(practice) %><%= t 'views.common.shots' %></span>
+      <span><%= practice_fixed_icon(practice) %><%= practice_important_icon(practice) %></span>
     </div>
     <div class="col-2">
       <%= link_to '', edit_practice_path(practice), data: { turbo_frame: "_top" }, class: "bi bi-pencil text-secondary mx-2" %>

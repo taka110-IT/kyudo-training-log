@@ -1,20 +1,19 @@
 <%= turbo_frame_tag @practice do %>
   <%= render "practices_modal" do %>
 
-    <div class="row lh-sm">
-      <p>
-        <%= practice_shooting_count_display(@practice) %>
+    <div class="row justify-content-between mb-3">
+      <div class="col-9">
+        <%= practice_shooting_count_display(@practice) %><%= t 'views.common.shots' %>
         <%= practice_fixed_icon(@practice) %>
         <%= practice_important_icon(@practice) %>
-      </p>
+      </div>
+      <div class="col-2">
+        <%= link_to '', edit_practice_path(@practice), data: { turbo_frame: "_top" }, class: "bi bi-pencil text-secondary mx-2" %>
+      </div>
     </div>
 
-    <div class="text-break">
+    <div class="text-break mb-2">
       <%= practice_memo_blank_message(@practice) %>
-    </div>
-
-    <div class="pt-3 text-end">
-      <%= link_to t('views.common.edit'), edit_practice_path(@practice), data: { turbo_frame: "_top" }, class: "btn btn-outline-success btn-sm" %>
     </div>
   <% end %>
 <% end %>
