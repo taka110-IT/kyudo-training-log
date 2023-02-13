@@ -1,16 +1,16 @@
 .simple-calendar {
   th:first-child {
-    background: #ffeaea;
-    color: #ff505c;
+    background: #fff0f0;
+    color: #ff8d99;
   }
 
   th:nth-of-type(n+2):nth-of-type(-n+6) {
-    background: #e6e6e6;
+    background: #f5f5f5;
   }
 
   th:nth-child(7) {
-    background: #d4ebff;
-    color: #5984dc;
+    background: #e2f3ff;
+    color: #78a2e6;
   }
 
   table {
@@ -22,23 +22,23 @@
   }
 
   .wday-0 {
-    background: #ffeaea;
-    color: #ff505c;
+    background: #fff0f0;
+    color: #ff8d99;
   }
 
   .wday-6 {
-    background: #d4ebff;
-    color: #5984dc;
+    background: #e2f3ff;
+    color: #78a2e6;
   }
 
   .has-events {
-    background: #abec8f;
+    background: #d0f0d1;
   }
 
   .prev-month {
-    background: #ccc;
+    background: #f5f5f5;
   }
   .next-month {
-    background: #ccc;
+    background: #f5f5f5;
   }
 }
