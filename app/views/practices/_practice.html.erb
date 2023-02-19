@@ -1,7 +1,7 @@
 <div id="<%= dom_id practice %>" class="my-4">
   <div class="row lh-sm justify-content-between">
     <div class="col-9">
-      <span class="me-4"><u><%= l(practice.date, format: :long) %></u></span>
+      <span class="ms-2 me-4"><u><%= l(practice.date, format: :long) %></u></span>
       <span><%= practice_shooting_count_display(practice) %><%= t 'views.common.shots' %></span>
       <span><%= practice_fixed_icon(practice) %><%= practice_important_icon(practice) %></span>
     </div>
@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <div class="text-break border-bottom pt-2 pb-3 px-2">
+  <div class="text-break pt-2 pb-1 px-2">
     <%= practice_memo_blank_message(practice) %>
   </div>
 </div>

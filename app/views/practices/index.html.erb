@@ -29,10 +29,16 @@
         </div>
       <% else %>
         <div id="practices">
-          <% @user_practices.each do |practice| %>
-            <div>
-              <%= render practice %>
-            </div>
+          <% @user_practices.each_with_index do |practice, index| %>
+            <% if index != 0 %>
+              <div class="border-top">
+                <%= render practice %>
+              </div>
+            <% else %>
+              <div>
+                <%= render practice %>
+              </div>
+            <% end %>
           <% end %>
         </div>
         <% end %>
