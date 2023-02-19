@@ -15,10 +15,10 @@
     <% end %>
 
     <div class="container-fluid my-4">
-      <div class="calendar-heading mb-1 text-center">
-        <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: "me-2 text-decoration-none fs-1" %>
+      <div class="calendar-heading mb-3 text-center d-flex justify-content-center align-items-center">
+        <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: "btn btn-outline-secondary fs-5" %>
         <span class="calendar-title fs-3 mx-5"><%= start_date.year %><%= t 'datetime.prompts.year' %><%= t('date.month_names')[start_date.month] %></span>
-        <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: "ms-2 text-decoration-none fs-1" %>
+        <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: "btn btn-outline-secondary fs-5" %>
       </div>
 
       <div class="text-center">
