@@ -56,7 +56,6 @@ gem 'bootsnap', require: false
 gem 'devise'
 gem 'devise-i18n'
 gem 'dotenv-rails'
-gem 'i18n_generators'
 gem 'kaminari'
 gem 'meta-tags'
 gem 'simple_calendar', '~> 2.4'
@@ -78,6 +77,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem 'i18n_generators'
   gem 'letter_opener_web', '~> 2.0'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
