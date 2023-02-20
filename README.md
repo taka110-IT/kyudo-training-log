@@ -27,7 +27,10 @@ https://kyudo-training-log.com/
 $ git clone https://github.com/taka110-IT/kyudo-training-log.git
 $ cd kyudo-training-log
 $ bin/setup
-$ yarn
+```
+
+## 開発環境立ち上げ
+```
 $ bin/dev
 ```
 
