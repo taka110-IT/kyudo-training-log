@@ -19,7 +19,7 @@ class Target < ApplicationRecord
   end
 
   def self.cancel_target_achievement(target_data, remaining_shots)
-    return if target_data.blank? || !(remaining_shots.positive? && (target_data.first[:achievement] == true))
+    return if target_data.blank? || !(remaining_shots.positive? && target_data.first[:achievement])
 
     target_data.first.update(achievement: false)
   end
