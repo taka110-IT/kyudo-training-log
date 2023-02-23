@@ -22,7 +22,7 @@ class PracticesController < ApplicationController
   def show; end
 
   def new
-    @practice = Practice.new(date: Time.zone.now)
+    @practice = Practice.new(date: Time.current)
   end
 
   def edit; end
