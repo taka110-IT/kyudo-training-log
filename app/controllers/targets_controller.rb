@@ -15,12 +15,10 @@ class TargetsController < ApplicationController
     @target = Target.new(target_params)
     start_date = Target.display_start_date(@target)
 
-    respond_to do |format|
-      if @target.save
-        format.html { redirect_to root_path(start_date:), notice: t('controllers.targets.create') }
-      else
-        format.html { redirect_to root_path(start_date:), status: :unprocessable_entity, alert: t('controllers.targets.create_error') }
-      end
+    if @target.save
+      redirect_to root_path(start_date:), notice: t('controllers.targets.create')
+    else
+      redirect_to root_path(start_date:), status: :unprocessable_entity, alert: t('controllers.targets.create_error')
     end
   end
 
@@ -28,12 +26,10 @@ class TargetsController < ApplicationController
     start_date = Target.display_start_date(@target)
     notice_message = Target.display_notice_message(params[:target][:notice])
 
-    respond_to do |format|
-      if @target.update(target_params)
-        format.html { redirect_to root_path(start_date:), notice: notice_message }
-      else
-        format.html { redirect_to root_path(start_date:), status: :unprocessable_entity, alert: t('controllers.targets.update_error') }
-      end
+    if @target.update(target_params)
+      redirect_to root_path(start_date:), notice: notice_message
+    else
+      redirect_to root_path(start_date:), status: :unprocessable_entity, alert: t('controllers.targets.update_error')
     end
   end
 
