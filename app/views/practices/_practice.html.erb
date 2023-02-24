@@ -1,7 +1,7 @@
 <div id="<%= dom_id practice %>" class="my-4">
   <div class="row lh-sm justify-content-between">
     <div class="col-9">
-      <span class="ms-2 me-4"><u><%= l(practice.date, format: :long) %></u></span>
+      <span class="ms-2 me-4"><%= l(practice.date, format: :long) %></span>
       <span><%= practice_shooting_count_display(practice) %><%= t 'views.common.shots' %></span>
       <span><%= practice_fixed_icon(practice) %><%= practice_important_icon(practice) %></span>
     </div>

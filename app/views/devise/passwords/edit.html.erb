@@ -10,7 +10,7 @@
         <%= f.label :password, t('devise.passwords.edit.new_password'), class: "form-label" %>
         <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control", placeholder: 'PASSword123' %>
         <% if @minimum_password_length %>
-          <p>(<%= t('devise.passwords.new.validates', count: @minimum_password_length) %>)</p>
+          <p class="mt-2">(<%= t('devise.passwords.new.validates', count: @minimum_password_length) %>)</p>
         <% end %>
       </div>
     </div>
