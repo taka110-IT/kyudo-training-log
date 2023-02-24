@@ -23,7 +23,7 @@
           <p>(<%= t 'devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it' %>)</p>
         <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: 'PASSword123' %>
         <% if @minimum_password_length %>
-          <p>(<%= t('devise.passwords.new.validates', count: @minimum_password_length) %>)</p>
+          <p class="mt-2">(<%= t('devise.passwords.new.validates', count: @minimum_password_length) %>)</p>
         <% end %>
       </div>
     </div>
@@ -39,7 +39,7 @@
       <div class="field">
         <%= f.label :current_password, class: "form-label" %>
         <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control", placeholder: 'PASSword123' %>
-        <p>(<%= t 'devise.registrations.edit.we_need_your_current_password_to_confirm_your_changes' %>)</p>
+        <p class="mt-2">(<%= t 'devise.registrations.edit.we_need_your_current_password_to_confirm_your_changes' %>)</p>
       </div>
     </div>
 
