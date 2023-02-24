@@ -4,9 +4,7 @@ class TargetsController < ApplicationController
   before_action :set_target, only: %i[edit update]
 
   def new
-    target_year = params[:year]
-    target_month = params[:month]
-    @target = Target.new(year: target_year, month: target_month)
+    @target = Target.new(year: params[:year], month: params[:month])
   end
 
   def edit; end
