@@ -24,7 +24,7 @@ class TargetsController < ApplicationController
 
   def update
     start_date = Target.display_start_date(@target)
-    notice_message = Target.display_notice_message(params[:target][:notice])
+    notice_message = params[:target][:notice] == 'achievement' ? 'achievement' : I18n.t('controllers.targets.update')
 
     if @target.update(target_params)
       redirect_to root_path(start_date:), notice: notice_message

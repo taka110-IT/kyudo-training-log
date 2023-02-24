@@ -10,20 +10,6 @@ RSpec.describe Target, type: :model do
     expect(described_class.display_start_date(target)).to eq '2023-1-1'
   end
 
-  describe 'display notice' do
-    context 'when target achieved' do
-      it 'returns achievement' do
-        expect(described_class.display_notice_message('achievement')).to eq 'achievement'
-      end
-    end
-
-    context 'when target updated' do
-      it 'returns updated message' do
-        expect(described_class.display_notice_message('')).to eq '目標を修正しました。'
-      end
-    end
-  end
-
   it 'is target set' do
     expect(described_class.setting_target(start_date, target.user).first.total).to eq 10
   end

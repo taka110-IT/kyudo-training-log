@@ -10,10 +10,6 @@ class Target < ApplicationRecord
     [target[:year], target[:month], 1].join('-')
   end
 
-  def self.display_notice_message(message)
-    message == 'achievement' ? 'achievement' : I18n.t('controllers.targets.update')
-  end
-
   def self.setting_target(start_date, current_user)
     Target.where(year: start_date.year, month: start_date.month, user_id: current_user)
   end
