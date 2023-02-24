@@ -22,7 +22,7 @@ class PracticesController < ApplicationController
   def show; end
 
   def new
-    @practice = Practice.new(date: Time.zone.now)
+    @practice = Practice.new(date: Time.current)
   end
 
   def edit; end
@@ -31,23 +31,19 @@ class PracticesController < ApplicationController
     @practice = Practice.new(practice_params)
     start_date = Practice.display_start_date(@practice)
 
-    respond_to do |format|
-      if @practice.save
-        format.html { redirect_to root_path(start_date:), notice: t('controllers.practices.create') }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    if @practice.save
+      redirect_to root_path(start_date:), notice: t('controllers.practices.create')
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    respond_to do |format|
-      if @practice.update(practice_params)
-        start_date = Practice.display_start_date(@practice)
-        format.html { redirect_to root_path(start_date:), notice: t('controllers.practices.update') }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-      end
+    if @practice.update(practice_params)
+      start_date = Practice.display_start_date(@practice)
+      redirect_to root_path(start_date:), notice: t('controllers.practices.update')
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -55,9 +51,7 @@ class PracticesController < ApplicationController
     @practice.destroy
     start_date = Practice.display_start_date(@practice)
 
-    respond_to do |format|
-      format.html { redirect_to root_path(start_date:), notice: t('controllers.practices.destroy'), status: :see_other }
-    end
+    redirect_to root_path(start_date:), notice: t('controllers.practices.destroy'), status: :see_other
   end
 
   private

@@ -26,7 +26,5 @@ class Practice < ApplicationRecord
     [practice.date.year, practice.date.mon, practice.date.day].join('-')
   end
 
-  def start_time
-    date
-  end
+  alias_attribute :start_time, :date
 end
