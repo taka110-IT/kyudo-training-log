@@ -40,7 +40,7 @@ RSpec.describe 'Targets::Targets', js: true, type: :system do
 
   it 'can input target for past month' do
     create(:target, user:)
-    click_link '<<'
+    find('.bi-arrow-left-square').click
 
     click_link '2022年12月の目標を登録'
 
@@ -57,7 +57,7 @@ RSpec.describe 'Targets::Targets', js: true, type: :system do
   it 'can update target for past month' do
     create(:target, user:, year: 2022, month: 12)
     visit root_path
-    click_link '<<'
+    find('.bi-arrow-left-square').click
     expect(page).to have_selector '.calendar-title', text: '2022年12月'
 
     first('.bi-pencil').click
