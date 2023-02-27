@@ -48,18 +48,18 @@ ja:
       confirmation_instructions:
         action: メールアドレスの確認
         greeting: "%{recipient}様"
-        instruction: 以下のリンクをクリックし、メールアドレスの確認手続を完了させてください。
-        subject: メールアドレス確認メール
+        instruction: 弓道練習記録帳にご登録いただきありがとうございます。以下のリンクをクリックし、メールアドレスの確認手続を完了させてください。
+        subject: 【弓道練習記録帳】メールアドレス確認メール
         confirm_my_account: メールアドレス確認
       email_changed:
         greeting: "%{recipient}様"
         message: メールアドレス（%{email}）の変更が完了したため、メールを送信しています。
         message_unconfirmed: メールアドレス（%{email}）が変更されたため、メールを送信しています。
-        subject: メール変更完了
+        subject: 【弓道練習記録帳】メール変更完了
       password_change:
         greeting: "%{recipient}様"
         message: パスワードが再設定されました。
-        subject: パスワードの変更について
+        subject: 【弓道練習記録帳】パスワードの変更について
       reset_password_instructions:
         action: パスワード変更
         change_my_password: パスワードを変更する
@@ -67,13 +67,13 @@ ja:
         instruction: パスワード再設定の依頼を受けたため、メールを送信しています。下のリンクからパスワードの再設定ができます。
         instruction_2: パスワード再設定の依頼をしていない場合、このメールを無視してください。
         instruction_3: パスワードの再設定は、上のリンクから新しいパスワードを登録するまで完了しません。
-        subject: パスワードの再設定について
+        subject: 【弓道練習記録帳】パスワードの再設定について
       unlock_instructions:
         action: アカウントのロック解除
         greeting: "%{recipient}様"
         instruction: アカウントのロックを解除するには下のリンクをクリックしてください。
         message: ログイン失敗が繰り返されたため、アカウントはロックされています。
-        subject: アカウントのロック解除について
+        subject: 【弓道練習記録帳】アカウントのロック解除について
         unlock_my_account: アカウントのロック解除
     passwords:
       edit:
@@ -98,7 +98,7 @@ ja:
         cancel_my_account: アカウント削除
         currently_waiting_confirmation_for_email: "%{email} の確認待ち"
         leave_blank_if_you_don_t_want_to_change_it: 空欄のままなら変更しません
-        title: "ユーザー情報編集"
+        title: "登録情報編集"
         unhappy: 気に入りません
         update: 更新
         we_need_your_current_password_to_confirm_your_changes: 変更を反映するには現在のパスワードを入力してください
@@ -150,5 +150,5 @@ ja:
     application:
       title: 弓道練習記録帳
       logged_in_as: ログインユーザー：
-      edit_profile: ユーザー編集
+      edit_profile: 登録情報編集
       logout: ログアウト

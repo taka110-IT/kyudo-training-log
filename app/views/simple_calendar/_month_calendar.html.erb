@@ -16,9 +16,9 @@
 
     <div class="container-fluid my-4">
       <div class="calendar-heading mb-3 text-center d-flex justify-content-center align-items-center">
-        <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: "btn btn-outline-secondary fs-5" %>
+        <%= link_to '', calendar.url_for_previous_view, class: "bi bi-arrow-left-square text-secondary fs-2" %>
         <span class="calendar-title fs-3 mx-5"><%= start_date.year %><%= t 'datetime.prompts.year' %><%= t('date.month_names')[start_date.month] %></span>
-        <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: "btn btn-outline-secondary fs-5" %>
+        <%= link_to '', calendar.url_for_next_view, class: "bi bi-arrow-right-square text-secondary fs-2" %>
       </div>
 
       <div class="text-center">
@@ -49,7 +49,7 @@
       </div>
     </div>
 
-    <div class="fs-5 mb-4">
+    <div class="fs-6 mb-4">
       <% unless @target_data.blank? %>
         <% if @remaining_shots <= 0 %>
           <span class="text-danger"><%= t 'views.achievement.title' %></span>

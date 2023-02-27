@@ -15,11 +15,11 @@ RSpec.describe 'Practices::Calendars', js: true, type: :system do
   end
 
   it 'can switch month' do
-    click_link '<<'
+    find('.bi-arrow-left-square').click
 
     expect(page).to have_selector '.calendar-title', text: '2022年12月'
 
-    click_link '>>'
+    find('.bi-arrow-right-square').click
 
     expect(page).to have_selector '.calendar-title', text: '2023年1月'
   end
@@ -58,7 +58,7 @@ RSpec.describe 'Practices::Calendars', js: true, type: :system do
   end
 
   it 'can update practice from past calendars' do
-    click_link '<<'
+    find('.bi-arrow-left-square').click
     click_link '5'
 
     within '#practices_modal' do
@@ -73,7 +73,7 @@ RSpec.describe 'Practices::Calendars', js: true, type: :system do
   end
 
   it 'can delete practice from past calendars' do
-    click_link '<<'
+    find('.bi-arrow-left-square').click
     click_link '5'
 
     within '#practices_modal' do

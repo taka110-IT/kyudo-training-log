@@ -48,18 +48,18 @@ en:
       confirmation_instructions:
         action: "Confirmation instructions"
         greeting: "Welcome %{recipient}!"
-        instruction: "You can confirm your account email through the link below:"
-        subject: "Confirmation instructions"
+        instruction: "Thank you for registering with Kyudo-Training-Log. You can confirm your account email through the link below:"
+        subject: "【Kyudo-Training-Log】Confirmation instructions"
         confirm_my_account: "Confirm my account"
       email_changed:
         greeting: "Hello %{recipient}!"
         message: "We're contacting you to notify you that your email has been changed to %{email}."
         message_unconfirmed: "We're contacting you to notify you that your email is being changed to %{email}."
-        subject: "Email Changed"
+        subject: "【Kyudo-Training-Log】Email Changed"
       password_change:
         greeting: "Hello %{recipient}!"
         message: "We're contacting you to notify you that your password has been changed."
-        subject: "Password Changed"
+        subject: "【Kyudo-Training-Log】Password Changed"
       reset_password_instructions:
         action: "Reset password instructions."
         change_my_password: "Change my password"
@@ -67,13 +67,13 @@ en:
         instruction: "Someone has requested a link to change your password. You can do this through the link below."
         instruction_2: "If you didn't request this, please ignore this email."
         instruction_3: "Your password won't change until you access the link above and create a new one."
-        subject: "Reset password instructions"
+        subject: "【Kyudo-Training-Log】Reset password instructions"
       unlock_instructions:
         action: "Unlock instructions"
         greeting: "Hello %{recipient}!"
         instruction: "Click the link below to unlock your account:"
         message: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
-        subject: "Unlock instructions"
+        subject: "【Kyudo-Training-Log】Unlock instructions"
         unlock_my_account: "Unlock my account"
     passwords:
       edit:
@@ -98,7 +98,7 @@ en:
         cancel_my_account: "Cancel my account."
         currently_waiting_confirmation_for_email: "Currently waiting confirmation for %{email}."
         leave_blank_if_you_don_t_want_to_change_it: "Leave blank if you don't want to change it."
-        title: "Edit User"
+        title: "Edit Profile"
         unhappy: Unhappy
         update: Update
         we_need_your_current_password_to_confirm_your_changes: "We need your current password to confirm your changes."

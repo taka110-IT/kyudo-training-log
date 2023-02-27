@@ -21,10 +21,10 @@ RSpec.describe 'Practices::Achievements', js: true, type: :system do
     click_button '登録する'
 
     within '#achievement_message_modal' do
-      expect(page).to have_content '🎉目標を達成しました🎉'
+      expect(page).to have_content '🎉 目標を達成しました 🎉'
       click_button '閉じる'
     end
 
-    expect(page).to have_content '🎉目標を達成しました🎉'
+    expect(page).to have_content '🎉 目標を達成しました 🎉'
   end
 end
